@@ -42,7 +42,21 @@ const ApplicationStyles = {
       backgroundColor: Colors.primary,
       borderBottomRightRadius: 30,
       borderBottomLeftRadius: 30
-    }
+    },
+    buttonStyle: {
+      backgroundColor: Colors.primaryLight,
+      borderRadius: Metrics.mainRadius,
+      paddingVertical: Metrics.mainVertical * 1.2,
+      borderColor: Colors.white,
+      borderWidth: 1,
+    },
+    buttonTitleStyle: {
+      fontSize: Fonts.size.medium,
+      fontFamily: Fonts.type.bold,
+    },
+    buttonContainerStyle: {
+      marginVertical: Metrics.mainVertical
+    },
   }
 }
 

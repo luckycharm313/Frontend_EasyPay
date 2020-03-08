@@ -8,7 +8,7 @@ const metrics = {
   screenHeight: width < height ? height : width,
   navBarHeight: (Platform.OS === 'ios') ? 64 : 54,
   mainRadius: 4,
-  mainHorizontal: 15,
+  mainHorizontal: 20,
   mainVertical: 10,  
   horizontalLineHeight: 1,
   section: {

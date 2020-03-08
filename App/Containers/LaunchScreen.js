@@ -1,20 +1,57 @@
 import React, { Component } from 'react'
-import { ScrollView, Text, KeyboardAvoidingView } from 'react-native'
+import { SafeAreaView, Text, KeyboardAvoidingView, View } from 'react-native'
 import { connect } from 'react-redux'
-// Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from '../Redux/YourRedux'
+import { Button } from 'react-native-elements'
 
 // Styles
 import styles from './Styles/LaunchScreenStyle'
 
 class LaunchScreen extends Component {
+  onOneTimePaymentHandle = () => {
+
+  }
+
+  onSigninHandle = () => {
+
+  }
+
+  onSignupHandle = () => {
+
+  }
+
   render () {
     return (
-      <ScrollView style={styles.container}>
-        <KeyboardAvoidingView behavior='position'>
-          <Text>LaunchScreen</Text>
-        </KeyboardAvoidingView>
-      </ScrollView>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.mainPaddingContainer}>
+          <View style={styles.logoContainer}>
+            <View style={{borderWidth: 1, borderColor: 'white', width: 150, height: 150}}></View>
+          </View>
+          <View style={styles.btnGroupContainer}>
+            <Button
+              title='ONE TIME PAYMENT'
+              titleStyle={styles.buttonTitleStyle}
+              buttonStyle={styles.buttonStyle}
+              containerStyle={styles.buttonContainerStyle}
+              onPress={this.onOneTimePaymentHandle}
+            />
+            <Button
+              title='SIGN IN'
+              titleStyle={styles.buttonTitleStyle}
+              buttonStyle={styles.buttonStyle}
+              containerStyle={[styles.buttonContainerStyle, { marginTop: 50}]}
+              onPress={this.onSigninHandle}
+            />
+            <Button
+              title='SIGN UP'
+              titleStyle={styles.buttonTitleStyle}
+              buttonStyle={styles.buttonStyle}
+              containerStyle={styles.buttonContainerStyle}
+              onPress={this.onSignupHandle}
+            />
+          </View>          
+        </View>
+        
+      </SafeAreaView>
     )
   }
 }
