@@ -12,9 +12,9 @@ class Header extends Component {
         {this.props.leftButton === "back" ? (
           <TouchableOpacity
             style={styles.iconLeft}
-            onPress={() => this.props.navigation.goBack()}
+            onPress={() => this.props.nextScreen ? this.props.navigation.navigate(this.props.nextScreen): this.props.navigation.goBack()}
           >
-            <Icon name="keyboard-arrow-left" style={styles.iconBack} />
+            <Icon name="arrow-back" style={styles.iconBack} />
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
@@ -26,22 +26,12 @@ class Header extends Component {
             <Icon name="settings" style={styles.iconSetting} />
           </TouchableOpacity>
         )}
-        { !this.props.photo ? (
-          <TouchableOpacity style={styles.iconRight}>
-            <Icon name="account-circle" style={styles.icon} />
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity style={styles.iconRight}>
-            <Image source={Images.header} style={styles.logo} />
-          </TouchableOpacity>
-        )}
       </View>
     );
   }
 }
-const mapStateToProps = ({user}) => {
+const mapStateToProps = (state) => {
   return {
-    photo: user.profile.photo
   }
 }
 

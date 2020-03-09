@@ -17,16 +17,20 @@ import {
 
 import styles from "./Styles/NavigationStyles";
 import LaunchScreen from '../Containers/LaunchScreen'
+import SigninScreen from '../Containers/SigninScreen'
+import SignupScreen from '../Containers/SignupScreen'
 import { Colors, Metrics, Images } from "../Themes/";
 
 
 const PrimaryNav = createStackNavigator(
   {
     LaunchScreen: { screen: LaunchScreen },
+    SigninScreen: { screen: SigninScreen },
+    SignupScreen: { screen: SignupScreen },
   },
   {
     headerMode: "none",
-    initialRouteName: "LaunchScreen",
+    initialRouteName: "SignupScreen",
     navigationOptions: {
       headerStyle: styles.header,
       lazy: false

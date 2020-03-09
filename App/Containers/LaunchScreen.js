@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { SafeAreaView, Text, KeyboardAvoidingView, View } from 'react-native'
+import { SafeAreaView, View } from 'react-native'
 import { connect } from 'react-redux'
 import { Button } from 'react-native-elements'
 
@@ -49,8 +49,7 @@ class LaunchScreen extends Component {
               onPress={this.onSignupHandle}
             />
           </View>          
-        </View>
-        
+        </View>        
       </SafeAreaView>
     )
   }

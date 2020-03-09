@@ -1,9 +1,13 @@
 const colors = {
   white: '#FFFFFF',
+  black: '#000000',
   primary : '#0b57d1',
   primaryDark : '#020414',
   primaryLight : '#4f96f7',
   transparent: 'rgba(0,0,0,0)',
+  textHintColor: '#A1A3B3',
+  lightWhite: '#E8E9F0',
+  darkWhite: '#E5E5E5',
 
   background: '#1F0808',
   clear: 'rgba(0,0,0,0)',

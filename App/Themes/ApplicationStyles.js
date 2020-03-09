@@ -18,6 +18,9 @@ const ApplicationStyles = {
       bottom: 0,
       right: 0
     },
+    scrollContainer: {
+      flexGrow: 1
+    },
     container: {
       flex: 1,      
       backgroundColor: Colors.primary

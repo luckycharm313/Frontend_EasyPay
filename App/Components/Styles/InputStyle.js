@@ -8,15 +8,15 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: Colors.darkWhite,
+    backgroundColor: Colors.white,
     borderRadius: Metrics.mainRadius,
-    paddingHorizontal: Metrics.mainHorizontal,
+    paddingHorizontal: 10,
     paddingVertical: Metrics.mainVertical,
   },
 	input: {
     flex: 1,
-    fontSize: Fonts.size.middle,
+    fontSize: Fonts.size.regular,
 		textAlign: 'left',
-    color: Colors.primary,
+    color: Colors.black,
   }
 })

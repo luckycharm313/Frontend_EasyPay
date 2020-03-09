@@ -27,7 +27,7 @@ export default StyleSheet.create({
   },
   iconBack: {
     color: Colors.lightWhite,
-    fontSize: Fonts.size.h4 + 3
+    fontSize: Fonts.size.h4
   },
   iconSetting: {
     color: Colors.lightWhite,
