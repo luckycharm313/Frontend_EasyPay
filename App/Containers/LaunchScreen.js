@@ -36,10 +36,17 @@ class LaunchScreen extends Component {
               title='SIGN IN'
               titleStyle={styles.buttonTitleStyle}
               buttonStyle={styles.buttonStyle}
+              containerStyle={[styles.buttonContainerStyle, { marginTop: 40}]}
+              onPress={this.onSigninHandle}
+            />
+            <Button
+              title='SIGN UP'
+              titleStyle={styles.buttonTitleStyle}
+              buttonStyle={styles.buttonStyle}
               containerStyle={[styles.buttonContainerStyle]}
               onPress={this.onSigninHandle}
             />
-          </View>          
+          </View>
         </View>        
       </SafeAreaView>
     )

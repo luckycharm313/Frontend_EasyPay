@@ -14,6 +14,7 @@ class SignupScreen extends Component {
     this.state = {
       keyboardHeight: 0,
       email: '',
+      zipCode: '',
     }
   }
 
@@ -51,6 +52,10 @@ class SignupScreen extends Component {
               onChangeText={(email)=>this.setState({email})}
               placeholder='Email'
               value={this.state.email} />
+            <Input
+              onChangeText={(zipCode)=>this.setState({zipCode})}
+              placeholder='Zip Code'
+              value={this.state.zipCode} />
             <View style={{marginTop: 10}}>
               <AddCard
                 addCardHandler={(cardNumber, cardExpiry, cardCvc) => {
