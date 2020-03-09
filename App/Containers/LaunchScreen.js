@@ -12,11 +12,7 @@ class LaunchScreen extends Component {
   }
 
   onSigninHandle = () => {
-
-  }
-
-  onSignupHandle = () => {
-
+    this.props.navigation.navigate('SigninScreen')
   }
 
   render () {
@@ -38,15 +34,8 @@ class LaunchScreen extends Component {
               title='SIGN IN'
               titleStyle={styles.buttonTitleStyle}
               buttonStyle={styles.buttonStyle}
-              containerStyle={[styles.buttonContainerStyle, { marginTop: 50}]}
+              containerStyle={[styles.buttonContainerStyle]}
               onPress={this.onSigninHandle}
-            />
-            <Button
-              title='SIGN UP'
-              titleStyle={styles.buttonTitleStyle}
-              buttonStyle={styles.buttonStyle}
-              containerStyle={styles.buttonContainerStyle}
-              onPress={this.onSignupHandle}
             />
           </View>          
         </View>        

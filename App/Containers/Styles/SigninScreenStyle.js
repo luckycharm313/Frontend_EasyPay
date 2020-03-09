@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { ApplicationStyles, Metrics, Colors } from '../../Themes/'
+import { ApplicationStyles, Metrics, Colors, Fonts } from '../../Themes/'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -9,15 +9,16 @@ export default StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center'
   },
-  bottomContainer: {
-    flex: 1,
-    marginHorizontal: Metrics.mainHorizontal,
-    justifyContent: 'flex-end',
-    marginBottom: 20,
+  labelText: {
+    fontSize: 21,
+    color: Colors.white,
+    fontFamily: Fonts.type.bold,
+    marginVertical: 20,
   },
   bottomText: {
-    fontSize: 15,
-    color: Colors.white,
-    marginVertical: Metrics.mainVertical
-  },
+    fontSize: 14,
+    color: Colors.lightWhite,
+    fontFamily: Fonts.type.bold,
+    marginTop: 20
+  }
 })

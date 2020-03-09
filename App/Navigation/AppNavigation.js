@@ -18,7 +18,9 @@ import {
 import styles from "./Styles/NavigationStyles";
 import LaunchScreen from '../Containers/LaunchScreen'
 import SigninScreen from '../Containers/SigninScreen'
+import VerifyPhoneScreen from '../Containers/VerifyPhoneScreen'
 import SignupScreen from '../Containers/SignupScreen'
+import ScanScreen from '../Containers/ScanScreen'
 import { Colors, Metrics, Images } from "../Themes/";
 
 
@@ -26,7 +28,9 @@ const PrimaryNav = createStackNavigator(
   {
     LaunchScreen: { screen: LaunchScreen },
     SigninScreen: { screen: SigninScreen },
+    VerifyPhoneScreen: { screen: VerifyPhoneScreen },
     SignupScreen: { screen: SignupScreen },
+    ScanScreen: { screen: ScanScreen },
   },
   {
     headerMode: "none",

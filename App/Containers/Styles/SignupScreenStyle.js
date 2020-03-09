@@ -9,15 +9,9 @@ export default StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center'
   },
-  bottomContainer: {
-    flex: 1,
-    marginHorizontal: Metrics.mainHorizontal,
-    justifyContent: 'flex-end',
-    marginBottom: 20,
-  },
-  bottomText: {
+  policyText: {
     fontSize: 15,
     color: Colors.white,
     marginVertical: Metrics.mainVertical
-  },
+  }
 })

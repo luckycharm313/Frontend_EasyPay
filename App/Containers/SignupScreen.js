@@ -3,10 +3,10 @@ import { SafeAreaView, View, ScrollView, Keyboard, LayoutAnimation, TouchableOpa
 import { connect } from 'react-redux'
 import { Button } from 'react-native-elements'
 import Input from '../Components/Input'
-import Header from '../Components/Header'
-
+import { AddCard } from 'react-native-checkout'
 // Styles
 import styles from './Styles/SignupScreenStyle'
+import { Colors, Metrics, Fonts } from '../Themes'
 
 class SignupScreen extends Component {
   constructor(props) {
@@ -14,7 +14,6 @@ class SignupScreen extends Component {
     this.state = {
       keyboardHeight: 0,
       email: '',
-      password: '',
     }
   }
 
@@ -39,34 +38,64 @@ class SignupScreen extends Component {
     this.setState({keyboardHeight: 0})
   }
 
+  onNextHandle = () => {
+    this.props.navigation.navigate('ScanScreen')
+  }
+
   render () {
     return (
       <SafeAreaView style={styles.container}>
-        <Header leftButton='back' nextScreen='LaunchScreen' navigation={this.props.navigation}/>
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
           <View style={[styles.mainPaddingContainer, styles.screenContainer]}>
             <Input
               onChangeText={(email)=>this.setState({email})}
               placeholder='Email'
               value={this.state.email} />
-            <Input
-              onChangeText={(password)=>this.setState({password})}
-              secureTextEntry
-              placeholder='Password'
-              value={this.state.password} />
+            <View style={{marginTop: 10}}>
+              <AddCard
+                addCardHandler={(cardNumber, cardExpiry, cardCvc) => {
+                  console.log(`${cardNumber} ${cardExpiry} ${cardCvc}`)
+                  return Promise.resolve(cardNumber) //return a promise when you're done
+                }}
+                styles={{
+                  errorTextContainer: {
+                    height: null,
+                    paddingVertical: 10,
+                  },
+                  addButton: {
+                    display: 'none',
+                    marginTop: 0,
+                    marginBottom: 0,
+                    borderWidth: 1,
+                    borderColor: Colors.white,
+                    backgroundColor: Colors.primaryLight,
+                    borderRadius: Metrics.mainRadius,
+                  },
+                  errorText: {
+                    fontSize: 14,
+                    fontFamily: Fonts.type.bold,
+                    color: '#FA4F10',
+                  },
+                  addCardContainer: {
+                    borderRadius: Metrics.mainRadius,
+                    backgroundColor: Colors.transparent
+                  }
+                }}
+                placeholderTextColor={Colors.textHintColor}
+                activityIndicatorColor={Colors.primaryLight}
+                addCardButtonText="Add Card"
+                scanCardVisible={false}
+                scanCardAfterScanButtonText="Scan Card Again" />
+            </View>
+            <Text style={styles.policyText}>Adding your Card allows you to quickly make payments. You'll also enjoy Exclusive Discounts and perks! We are bringing back privacy to payment.</Text>
             <Button
-              title='SIGN UP'
+              title='NEXT'
               titleStyle={styles.buttonTitleStyle}
               buttonStyle={styles.buttonStyle}
               containerStyle={[styles.buttonContainerStyle, { marginTop: 50}]}
-              onPress={this.onSignupHandle}
-            />            
+              onPress={this.onNextHandle}
+            />
           </View>
-          <View style={styles.bottomContainer}>
-            <TouchableOpacity  onPress={() => this.props.navigation.navigate('SigninScreen')}>
-              <Text style={styles.bottomText}>Already have an account? Sign In</Text>
-            </TouchableOpacity>
-            </View>
         </ScrollView>
         <View style={{height: this.state.keyboardHeight}}/>      
       </SafeAreaView>
