@@ -34,7 +34,7 @@ const PrimaryNav = createStackNavigator(
   },
   {
     headerMode: "none",
-    initialRouteName: "SignupScreen",
+    initialRouteName: "ScanScreen",
     navigationOptions: {
       headerStyle: styles.header,
       lazy: false

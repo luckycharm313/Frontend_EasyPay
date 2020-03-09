@@ -1,8 +1,8 @@
 const colors = {
   white: '#FFFFFF',
   black: '#000000',
-  primary : '#0b57d1',
-  primaryDark : '#020414',
+  primary : '#3d62dd',
+  primaryDark : '#0b57d1',
   primaryLight : '#4f96f7',
   transparent: 'rgba(0,0,0,0)',
   textHintColor: '#A1A3B3',

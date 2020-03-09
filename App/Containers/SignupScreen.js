@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { SafeAreaView, View, ScrollView, Keyboard, LayoutAnimation, TouchableOpacity, Text } from 'react-native'
+import { SafeAreaView, View, ScrollView, Keyboard, LayoutAnimation, Text } from 'react-native'
 import { connect } from 'react-redux'
 import { Button } from 'react-native-elements'
 import Input from '../Components/Input'

@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import { SafeAreaView, View } from 'react-native'
+import { SafeAreaView, View, Image } from 'react-native'
 import { connect } from 'react-redux'
 import { Button } from 'react-native-elements'
-
 // Styles
 import styles from './Styles/LaunchScreenStyle'
-
+import { Images } from '../Themes/'
 class LaunchScreen extends Component {
   onOneTimePaymentHandle = () => {
 
@@ -20,7 +19,10 @@ class LaunchScreen extends Component {
       <SafeAreaView style={styles.container}>
         <View style={styles.mainPaddingContainer}>
           <View style={styles.logoContainer}>
-            <View style={{borderWidth: 1, borderColor: 'white', width: 150, height: 150}}></View>
+            <Image
+              source={Images.logo}
+              style={{ width: 200, height: 200 }}
+            />
           </View>
           <View style={styles.btnGroupContainer}>
             <Button
