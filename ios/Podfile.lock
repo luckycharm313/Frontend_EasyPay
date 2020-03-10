@@ -71,6 +71,8 @@ PODS:
     - React/RCTBlob
   - RNAwesomeCardIO (0.8.2):
     - React
+  - RNCAsyncStorage (1.8.1):
+    - React
   - yoga (0.59.9.React)
 
 DEPENDENCIES:
@@ -90,6 +92,7 @@ DEPENDENCIES:
   - React/RCTVibration (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
   - RNAwesomeCardIO (from `../node_modules/react-native-awesome-card-io`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - yoga (from `../node_modules/react-native/ReactCommon/yoga/yoga.podspec`)
 
 SPEC REPOS:
@@ -107,6 +110,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-camera"
   RNAwesomeCardIO:
     :path: "../node_modules/react-native-awesome-card-io"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-community/async-storage"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga/yoga.podspec"
 
@@ -118,8 +123,9 @@ SPEC CHECKSUMS:
   React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
   react-native-camera: 1f4c5be75a037b5573716a01d84ca0390c162954
   RNAwesomeCardIO: caa47eefd8b6ae1986af25df3b86f9d8fbae9bb8
+  RNCAsyncStorage: e0dd7c8a36543b4ef84969acd9f8aceba3a92dc2
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: cb22ff5cc3adb7118a2785e1295d16e9edacf005
+PODFILE CHECKSUM: 33c7b704b026eea0a4da86453785e3671fb1cb49
 
 COCOAPODS: 1.8.4

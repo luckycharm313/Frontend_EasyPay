@@ -24,6 +24,7 @@
     "git-hook": "npm run lint -s && npm run test -s"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.8.1",
     "add": "^2.0.6",
     "apisauce": "1.0.3",
     "format-json": "1.0.3",
