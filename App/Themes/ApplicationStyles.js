@@ -46,6 +46,10 @@ const ApplicationStyles = {
       borderBottomRightRadius: 30,
       borderBottomLeftRadius: 30
     },
+    verticalCenterContainer: {
+      flex: 1,
+      justifyContent: 'center'
+    },
     buttonStyle: {
       backgroundColor: Colors.primaryLight,
       borderRadius: Metrics.mainRadius,

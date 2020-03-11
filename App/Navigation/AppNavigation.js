@@ -21,6 +21,8 @@ import SigninScreen from '../Containers/SigninScreen'
 import VerifyPhoneScreen from '../Containers/VerifyPhoneScreen'
 import SignupScreen from '../Containers/SignupScreen'
 import ScanScreen from '../Containers/ScanScreen'
+import TipScreen from '../Containers/TipScreen'
+import ResultScreen from '../Containers/ResultScreen'
 import { Colors, Metrics, Images } from "../Themes/";
 
 
@@ -31,10 +33,12 @@ const PrimaryNav = createStackNavigator(
     VerifyPhoneScreen: { screen: VerifyPhoneScreen },
     SignupScreen: { screen: SignupScreen },
     ScanScreen: { screen: ScanScreen },
+    TipScreen: { screen: TipScreen },
+    ResultScreen: { screen: ResultScreen },
   },
   {
     headerMode: "none",
-    initialRouteName: "ScanScreen",
+    initialRouteName: "ResultScreen",
     navigationOptions: {
       headerStyle: styles.header,
       lazy: false

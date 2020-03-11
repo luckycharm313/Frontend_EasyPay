@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   SafeAreaView,
   View,
-  ScrollView,
   Platform,
   Alert,
   Text,
@@ -15,14 +14,14 @@ import QRCodeScanner from 'react-native-qrcode-scanner'
 import {check, openSettings, PERMISSIONS, RESULTS} from 'react-native-permissions'
 
 // Styles
-import { Colors, Metrics, Fonts } from '../Themes';
+import { Colors, Metrics } from '../Themes';
 import styles from './Styles/ScanScreenStyle';
 
 class ScanScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isPay: false,
+      isPay: true,
       isScan: false
     }
   }
@@ -70,7 +69,7 @@ class ScanScreen extends Component {
       this.setState({isScan: true, isPay: false})
   }
   onPayHandle = () => {
-
+    this.props.navigation.navigate('TipScreen')
   }
 
   onCancelHandle = () => {
@@ -113,6 +112,10 @@ class ScanScreen extends Component {
         <Text style={styles.textAddressName}>111, your address</Text>
         <Text style={styles.textAddressName}>Denver, CO 80204</Text>
         <Dash style={{ width: '100%', height:1, marginVertical: 15 }}/>
+        <View style={[styles.orderItem, { marginVertical: 10 }]}>
+          <Text style={[styles.totalLeft, { fontWeight: '800'} ]}>No</Text>
+          <Text style={[styles.totalRight, { width: null, fontWeight: '800' }]}>0001</Text>
+        </View>
       </View>
     )
   }
@@ -154,7 +157,7 @@ class ScanScreen extends Component {
                     containerStyle={[styles.buttonContainerStyle, {marginTop: 40}]}
                     onPress={this.onPayHandle}
                   />
-                </View>                  
+                </View>
               :
               <Button
                 title='SCAN CODE TO PAY'
