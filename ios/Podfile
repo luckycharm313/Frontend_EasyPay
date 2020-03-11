@@ -25,13 +25,16 @@ target 'EasyPay' do
     'RCTWebSocket',
   ]
   pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
-
+  
   pod 'RNAwesomeCardIO', :path => '../node_modules/react-native-awesome-card-io'
 
   pod 'react-native-camera', :path => '../node_modules/react-native-camera'
 
   pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
 
+  pod 'RNPermissions', :path => '../node_modules/react-native-permissions'
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
   target 'EasyPayTests' do
     inherit! :search_paths
     # Pods for testing

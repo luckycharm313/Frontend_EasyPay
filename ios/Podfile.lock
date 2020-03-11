@@ -6,6 +6,8 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.4)
+  - Permission-Camera (2.0.9):
+    - RNPermissions
   - React (0.59.9):
     - React/Core (= 0.59.9)
   - react-native-camera (3.19.0):
@@ -73,10 +75,13 @@ PODS:
     - React
   - RNCAsyncStorage (1.8.1):
     - React
+  - RNPermissions (2.0.9):
+    - React
   - yoga (0.59.9.React)
 
 DEPENDENCIES:
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
+  - Permission-Camera (from `../node_modules/react-native-permissions/ios/Camera.podspec`)
   - react-native-camera (from `../node_modules/react-native-camera`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
@@ -93,6 +98,7 @@ DEPENDENCIES:
   - React/RCTWebSocket (from `../node_modules/react-native`)
   - RNAwesomeCardIO (from `../node_modules/react-native-awesome-card-io`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
+  - RNPermissions (from `../node_modules/react-native-permissions`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga/yoga.podspec`)
 
 SPEC REPOS:
@@ -104,6 +110,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   Folly:
     :podspec: "../node_modules/react-native/third-party-podspecs/Folly.podspec"
+  Permission-Camera:
+    :path: "../node_modules/react-native-permissions/ios/Camera.podspec"
   React:
     :path: "../node_modules/react-native"
   react-native-camera:
@@ -112,6 +120,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-awesome-card-io"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-community/async-storage"
+  RNPermissions:
+    :path: "../node_modules/react-native-permissions"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga/yoga.podspec"
 
@@ -120,12 +130,14 @@ SPEC CHECKSUMS:
   DoubleConversion: e22e0762848812a87afd67ffda3998d9ef29170c
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   glog: 1de0bb937dccdc981596d3b5825ebfb765017ded
+  Permission-Camera: 8fe4753b02396489b11c5089e4f57bab7fe1ef42
   React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
   react-native-camera: 1f4c5be75a037b5573716a01d84ca0390c162954
   RNAwesomeCardIO: caa47eefd8b6ae1986af25df3b86f9d8fbae9bb8
   RNCAsyncStorage: e0dd7c8a36543b4ef84969acd9f8aceba3a92dc2
+  RNPermissions: 2f74237e97b08beda01e914301e12524ddddf5b8
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: 33c7b704b026eea0a4da86453785e3671fb1cb49
+PODFILE CHECKSUM: 1d558bf62f2fcce89b4631ef2507912b907aaa7e
 
 COCOAPODS: 1.8.4
