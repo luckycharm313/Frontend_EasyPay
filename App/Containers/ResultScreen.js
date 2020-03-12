@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { SafeAreaView, Text, View, Image } from "react-native";
+import { SafeAreaView, Text, View } from "react-native";
 import { connect } from "react-redux";
 import { Button } from "react-native-elements";
 import * as Animatable from "react-native-animatable";

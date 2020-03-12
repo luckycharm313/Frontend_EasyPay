@@ -8,6 +8,7 @@ const colors = {
   textHintColor: '#A1A3B3',
   lightWhite: '#E8E9F0',
   darkWhite: '#E5E5E5',
+  ember: 'rgba(164, 0, 48, 0.5)',
 
   background: '#1F0808',
   clear: 'rgba(0,0,0,0)',
@@ -22,13 +23,11 @@ const colors = {
   charcoal: '#595959',
   coal: '#2d2d2d',
   bloodOrange: '#fb5f26',
-  snow: 'white',
-  ember: 'rgba(164, 0, 48, 0.5)',
+  snow: 'white',  
   fire: '#e73536',
   drawer: 'rgba(30, 30, 29, 0.95)',
   eggplant: '#251a34',
   border: '#483F53',
-  banner: '#5F3E63',
   text: '#E0D7E5'
 }
 

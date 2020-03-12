@@ -23,6 +23,7 @@ import SignupScreen from '../Containers/SignupScreen'
 import ScanScreen from '../Containers/ScanScreen'
 import TipScreen from '../Containers/TipScreen'
 import ResultScreen from '../Containers/ResultScreen'
+import HistoryScreen from '../Containers/HistoryScreen'
 import { Colors, Metrics, Images } from "../Themes/";
 
 
@@ -35,10 +36,11 @@ const PrimaryNav = createStackNavigator(
     ScanScreen: { screen: ScanScreen },
     TipScreen: { screen: TipScreen },
     ResultScreen: { screen: ResultScreen },
+    HistoryScreen: { screen: HistoryScreen },
   },
   {
     headerMode: "none",
-    initialRouteName: "TipScreen",
+    initialRouteName: "HistoryScreen",
     navigationOptions: {
       headerStyle: styles.header,
       lazy: false
