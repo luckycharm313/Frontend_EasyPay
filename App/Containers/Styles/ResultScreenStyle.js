@@ -10,6 +10,7 @@ export default StyleSheet.create({
   textSuccess: {
     fontSize: Fonts.size.input,
     color: Colors.white,
+    fontWeight: '500',
     marginVertical: Metrics.mainVertical * 0.5
   },
   textResultSuccess: {
@@ -20,4 +21,8 @@ export default StyleSheet.create({
     marginTop: 50,
     marginBottom: Metrics.mainVertical
   },
+  rateContainer: {
+    marginTop: 50,
+
+  }
 })

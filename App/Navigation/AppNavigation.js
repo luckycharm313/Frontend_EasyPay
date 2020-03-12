@@ -38,7 +38,7 @@ const PrimaryNav = createStackNavigator(
   },
   {
     headerMode: "none",
-    initialRouteName: "ResultScreen",
+    initialRouteName: "TipScreen",
     navigationOptions: {
       headerStyle: styles.header,
       lazy: false

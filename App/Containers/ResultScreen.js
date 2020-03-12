@@ -3,10 +3,11 @@ import { SafeAreaView, Text, View, Image } from "react-native";
 import { connect } from "react-redux";
 import { Button } from "react-native-elements";
 import * as Animatable from "react-native-animatable";
+import StarRating from 'react-native-star-rating'
 
 import RainAnimation from "../Components/RainAnimation";
 // Styles
-import { Images } from "../Themes/";
+import { Images, Metrics } from "../Themes/";
 import styles from "./Styles/ResultScreenStyle";
 const fadeIn = {
   from: {
@@ -20,7 +21,8 @@ class ResultScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      iType: 2
+      iType: 0,
+      starCount: 3
     };
   }
 
@@ -45,6 +47,26 @@ class ResultScreen extends Component {
                 >
                   THANK YOU, your payment and tip was successful
                 </Animatable.Text>
+                <View style={styles.rateContainer}>
+                  <Text style={styles.textResultSuccess}>
+                    Rate Your Experience 
+                  </Text>
+                  <StarRating
+                    disabled={false}
+                    maxStars={5}
+                    rating={this.state.starCount}
+                    fullStarColor='#FFDF00'
+                    emptyStarColor='#FFDF00'
+                    emptyStar={'ios-star-outline'}
+                    fullStar={'ios-star'}
+                    halfStar={'ios-star-half'}
+                    iconSet={'Ionicons'}
+                    starSize = {40}
+                    selectedStar={(starCount) => this.setState({starCount})}
+                    containerStyle={{ justifyContent: 'space-evenly' }}
+                    buttonStyle={{ marginTop: Metrics.mainVertical }}
+                  />
+                </View>
               </View>
             </View>
           ) : this.state.iType === 1 ? ( // just payment
@@ -68,7 +90,7 @@ class ResultScreen extends Component {
           ) : (
             // fail
             <View style={styles.resultContainer}>
-              <Text style={styles.textSuccess}>
+              <Text style={styles.textResultSuccess}>
                 WE ARE SORRY YOUR card or Payment failed, please add a new card
                 to the Easy pay app or contact your bank. You can choose to pay
                 cash if nothing works
@@ -79,7 +101,7 @@ class ResultScreen extends Component {
             title="GO TO HOME"
             titleStyle={styles.buttonTitleStyle}
             buttonStyle={[styles.buttonStyle]}
-            containerStyle={[styles.buttonContainerStyle, {}]}
+            containerStyle={[styles.buttonContainerStyle, {marginBottom: 40}]}
             onPress={this.onGoHomeHandle}
           />
         </View>
