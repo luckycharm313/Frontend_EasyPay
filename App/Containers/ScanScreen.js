@@ -12,7 +12,7 @@ import Dash from 'react-native-dash'
 import { Button } from 'react-native-elements'
 import QRCodeScanner from 'react-native-qrcode-scanner'
 import {check, openSettings, PERMISSIONS, RESULTS} from 'react-native-permissions'
-
+import Header from '../Components/Header'
 // Styles
 import { Colors, Metrics } from '../Themes';
 import styles from './Styles/ScanScreenStyle';
@@ -124,6 +124,7 @@ class ScanScreen extends Component {
     const {isPay, isScan} = this.state
     return (
       <SafeAreaView style={styles.container}>
+        <Header leftButton="setting" navigation={this.props.navigation}/>
         { isScan ? (
           <View style={{flex: 1}}>
             <QRCodeScanner

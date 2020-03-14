@@ -1,17 +1,5 @@
-import React, { useState } from "react";
-import {
-  Platform,
-  View,
-  TouchableOpacity,
-  SafeAreaView,
-  Image,
-  Text
-} from "react-native";
-import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
-import FeatherIcons from "react-native-vector-icons/Feather";
 import {
   createStackNavigator,
-  createMaterialTopTabNavigator,
   createDrawerNavigator
 } from "react-navigation";
 
@@ -24,8 +12,42 @@ import ScanScreen from '../Containers/ScanScreen'
 import TipScreen from '../Containers/TipScreen'
 import ResultScreen from '../Containers/ResultScreen'
 import HistoryScreen from '../Containers/HistoryScreen'
-import { Colors, Metrics, Images } from "../Themes/";
+import DrawerScreen from '../Containers/DrawerScreen'
+import { Metrics } from "../Themes/";
 
+const Drawer = createDrawerNavigator(
+  {
+    ScanScreen: { 
+      screen: ScanScreen,
+      navigationOptions: {
+        title: "Home"
+      }
+    },
+    TipScreen: { 
+      screen: TipScreen,
+      navigationOptions: {
+        title: "Tip"
+      }
+    },
+    ResultScreen: {
+      screen: ResultScreen,
+      navigationOptions: {
+        title: "Result"
+      }
+    },
+    HistoryScreen: {
+      screen: HistoryScreen,
+      navigationOptions: {
+        title: "History"
+      }
+    },
+  },
+  {
+    contentComponent: DrawerScreen,
+    drawerWidth: Metrics.screenWidth * 0.7,
+    drawerPosition: "left"
+  }
+)
 
 const PrimaryNav = createStackNavigator(
   {
@@ -33,14 +55,16 @@ const PrimaryNav = createStackNavigator(
     SigninScreen: { screen: SigninScreen },
     VerifyPhoneScreen: { screen: VerifyPhoneScreen },
     SignupScreen: { screen: SignupScreen },
-    ScanScreen: { screen: ScanScreen },
-    TipScreen: { screen: TipScreen },
-    ResultScreen: { screen: ResultScreen },
-    HistoryScreen: { screen: HistoryScreen },
+    Drawer: {
+      screen: Drawer,
+      navigationOptions: {
+        header: null
+      }
+    }  
   },
   {
     headerMode: "none",
-    initialRouteName: "HistoryScreen",
+    initialRouteName: "Drawer",
     navigationOptions: {
       headerStyle: styles.header,
       lazy: false

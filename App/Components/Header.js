@@ -23,7 +23,7 @@ class Header extends Component {
               () => this.props.navigation.openDrawer()
             }
           >
-            <Icon name="settings" style={styles.iconSetting} />
+            <Icon name="reorder" style={styles.iconSetting} />
           </TouchableOpacity>
         )}
       </View>

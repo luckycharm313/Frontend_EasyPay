@@ -40,7 +40,7 @@ class SignupScreen extends Component {
   }
 
   onNextHandle = () => {
-    this.props.navigation.navigate('ScanScreen')
+    this.props.navigation.navigate('Drawer')
   }
 
   render () {

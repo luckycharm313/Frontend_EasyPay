@@ -48,6 +48,7 @@
 		3DFD7D331681B73FD6A4814A /* libPods-EasyPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E646EADA239AC6849B41E4 /* libPods-EasyPay.a */; };
 		465795E381564F69B243DA7E /* libRNSVG-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFDAB32DD414F958EF6CC71 /* libRNSVG-tvOS.a */; };
 		4C997871F8624258BC9BDB19 /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C249AB3DA2034E2681FA991F /* libRNGestureHandler-tvOS.a */; };
+		50EFDB0F241D743900FBAFDF /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EFDB0E241D743900FBAFDF /* logo.png */; };
 		61569C8A94D04515B77A8AFC /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B9B90213124B63945EA9B6 /* libSplashScreen.a */; };
 		6AEF89208E184BFB92DF145D /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8413A9F3593A4BCAB9D6F71D /* Entypo.ttf */; };
 		70EF40300E4E453586E30C70 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF7B5EFE69154DD9B11ADCAF /* MaterialCommunityIcons.ttf */; };
@@ -446,6 +447,7 @@
 		394CF199D8C84182B2308888 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		5042476587C02B874437DE40 /* Pods-EasyPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPay.debug.xcconfig"; path = "Target Support Files/Pods-EasyPay/Pods-EasyPay.debug.xcconfig"; sourceTree = "<group>"; };
 		50969D9424182903002F050B /* libPermission-Contacts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPermission-Contacts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		50EFDB0E241D743900FBAFDF /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../App/Images/logo.png; sourceTree = "<group>"; };
 		5999D4F9A2454E9A96EDB570 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6076F08985BAE7FBCACBC084 /* Pods-EasyPay-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPay-tvOS.release.xcconfig"; path = "Target Support Files/Pods-EasyPay-tvOS/Pods-EasyPay-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -633,6 +635,7 @@
 		13B07FAE1A68108700A75B9A /* EasyPay */ = {
 			isa = PBXGroup;
 			children = (
+				50EFDB0E241D743900FBAFDF /* logo.png */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -1401,6 +1404,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				50EFDB0F241D743900FBAFDF /* logo.png in Resources */,
 				F1CFC23ABD31495093580274 /* AntDesign.ttf in Resources */,
 				6AEF89208E184BFB92DF145D /* Entypo.ttf in Resources */,
 				85D86F6CBDCE462BA3937772 /* EvilIcons.ttf in Resources */,

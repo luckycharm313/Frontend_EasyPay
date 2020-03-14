@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { SafeAreaView, Text, View, FlatList } from "react-native";
 import { connect } from 'react-redux'
-
+import Header from '../Components/Header'
 // Styles
 import styles from './Styles/HistoryScreenStyle'
 
@@ -18,6 +18,7 @@ class HistoryScreen extends Component {
   render () {
     return (
       <SafeAreaView style={styles.container}>
+        <Header leftButton="setting" navigation={this.props.navigation}/>
         <View style={styles.mainPaddingContainer}>
           <Text style={styles.labelText}>Recent Activity</Text>
           <FlatList
