@@ -11,7 +11,7 @@ import SignupScreen from '../Containers/SignupScreen'
 import ScanScreen from '../Containers/ScanScreen'
 import TipScreen from '../Containers/TipScreen'
 import ResultScreen from '../Containers/ResultScreen'
-import HistoryScreen from '../Containers/HistoryScreen'
+import HomeScreen from '../Containers/HomeScreen'
 import DrawerScreen from '../Containers/DrawerScreen'
 import PaymentMethodScreen from '../Containers/PaymentMethodScreen'
 import CardScreen from '../Containers/CardScreen'
@@ -20,10 +20,16 @@ import { Metrics } from "../Themes/";
 
 const Drawer = createDrawerNavigator(
   {
+    HomeScreen: {
+      screen: HomeScreen,
+      navigationOptions: {
+        title: "Home"
+      }
+    },
     ScanScreen: { 
       screen: ScanScreen,
       navigationOptions: {
-        title: "Home"
+        title: "Scan"
       }
     },
     TipScreen: { 
@@ -37,13 +43,7 @@ const Drawer = createDrawerNavigator(
       navigationOptions: {
         title: "Result"
       }
-    },
-    HistoryScreen: {
-      screen: HistoryScreen,
-      navigationOptions: {
-        title: "History"
-      }
-    },
+    },    
   },
   {
     contentComponent: DrawerScreen,

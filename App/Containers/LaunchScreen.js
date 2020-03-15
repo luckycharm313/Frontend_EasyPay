@@ -36,7 +36,7 @@ class LaunchScreen extends Component {
               title='SIGN IN'
               titleStyle={styles.buttonTitleStyle}
               buttonStyle={styles.buttonStyle}
-              containerStyle={[styles.buttonContainerStyle, { marginTop: 40}]}
+              containerStyle={[styles.buttonContainerStyle]}
               onPress={this.onSigninHandle}
             />
             <Button

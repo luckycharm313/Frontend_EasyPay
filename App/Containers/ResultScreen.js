@@ -27,7 +27,7 @@ class ResultScreen extends Component {
   }
 
   onGoHomeHandle = () => {
-    this.props.navigation.navigate('ScanScreen')
+    this.props.navigation.navigate('HomeScreen')
   }
 
   render() {

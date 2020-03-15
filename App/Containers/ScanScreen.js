@@ -113,7 +113,7 @@ class ScanScreen extends Component {
         <Text style={styles.textAddressName}>Denver, CO 80204</Text>
         <Dash style={{ width: '100%', height:1, marginVertical: 15 }}/>
         <View style={[styles.orderItem, { marginVertical: 10 }]}>
-          <Text style={[styles.totalLeft, { fontWeight: '800'} ]}>No</Text>
+          <Text style={[styles.totalLeft, { fontWeight: '800'} ]}>Receipt No</Text>
           <Text style={[styles.totalRight, { width: null, fontWeight: '800' }]}>0001</Text>
         </View>
       </View>

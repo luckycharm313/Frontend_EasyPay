@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { SafeAreaView, Text, View, FlatList } from "react-native";
 import { connect } from 'react-redux'
+import { Button } from 'react-native-elements'
 import Header from '../Components/Header'
 // Styles
-import styles from './Styles/HistoryScreenStyle'
+import styles from './Styles/HomeScreenStyle'
 
-class HistoryScreen extends Component {
+class HomeScreen extends Component {
   renderItem = (e) => {
     return (
       <View style={styles.transactionItem}>
@@ -15,18 +16,27 @@ class HistoryScreen extends Component {
     )
   }
 
+  onTapHandle = () => {
+    this.props.navigation.navigate('ScanScreen')
+  }
   render () {
     return (
       <SafeAreaView style={styles.container}>
         <Header leftButton="setting" navigation={this.props.navigation}/>
         <View style={styles.mainPaddingContainer}>
-          <Text style={styles.labelText}>Recent Activity</Text>
           <FlatList
             style={styles.transactionContainer}
             showsVerticalScrollIndicator={false}
             data={[1,2,3,1,1,1,52,2,2,2,2]}
             keyExtractor={(item, index) => index.toString()}
             renderItem={this.renderItem}
+          />
+          <Button
+            title='Tap To Pay'
+            titleStyle={styles.buttonTitleStyle}
+            buttonStyle={styles.buttonStyle}
+            containerStyle={styles.buttonContainerStyle}
+            onPress={this.onTapHandle}
           />
         </View>
       </SafeAreaView>
@@ -44,4 +54,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HistoryScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)

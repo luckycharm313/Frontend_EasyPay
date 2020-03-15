@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { ApplicationStyles, Fonts, Metrics, Colors } from '../../Themes/'
+import { ApplicationStyles, Fonts, Metrics, Colors } from '../../Themes'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -11,6 +11,7 @@ export default StyleSheet.create({
     marginTop: 50,
   },
   transactionContainer: {
+    marginTop: 20,
     marginBottom: 30,
   },
   transactionItem: {
