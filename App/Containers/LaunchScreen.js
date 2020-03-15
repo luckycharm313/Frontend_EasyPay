@@ -7,7 +7,7 @@ import styles from './Styles/LaunchScreenStyle'
 import { Images } from '../Themes/'
 class LaunchScreen extends Component {
   onOneTimePaymentHandle = () => {
-
+    this.props.navigation.navigate('PaymentMethodScreen')
   }
 
   onSigninHandle = () => {

@@ -26,6 +26,10 @@ class ResultScreen extends Component {
     };
   }
 
+  onGoHomeHandle = () => {
+    this.props.navigation.navigate('ScanScreen')
+  }
+
   render() {
     return (
       <SafeAreaView style={styles.container}>

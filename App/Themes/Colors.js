@@ -9,6 +9,7 @@ const colors = {
   lightWhite: '#E8E9F0',
   darkWhite: '#E5E5E5',
   ember: 'rgba(164, 0, 48, 0.5)',
+  paypal: '#003087',
 
   background: '#1F0808',
   clear: 'rgba(0,0,0,0)',

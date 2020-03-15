@@ -13,6 +13,9 @@ import TipScreen from '../Containers/TipScreen'
 import ResultScreen from '../Containers/ResultScreen'
 import HistoryScreen from '../Containers/HistoryScreen'
 import DrawerScreen from '../Containers/DrawerScreen'
+import PaymentMethodScreen from '../Containers/PaymentMethodScreen'
+import CardScreen from '../Containers/CardScreen'
+
 import { Metrics } from "../Themes/";
 
 const Drawer = createDrawerNavigator(
@@ -55,6 +58,8 @@ const PrimaryNav = createStackNavigator(
     SigninScreen: { screen: SigninScreen },
     VerifyPhoneScreen: { screen: VerifyPhoneScreen },
     SignupScreen: { screen: SignupScreen },
+    PaymentMethodScreen: { screen: PaymentMethodScreen },
+    CardScreen: { screen: CardScreen },
     Drawer: {
       screen: Drawer,
       navigationOptions: {
@@ -64,7 +69,7 @@ const PrimaryNav = createStackNavigator(
   },
   {
     headerMode: "none",
-    initialRouteName: "Drawer",
+    initialRouteName: "LaunchScreen",
     navigationOptions: {
       headerStyle: styles.header,
       lazy: false
