@@ -11,7 +11,10 @@ import { Colors, Metrics, Fonts } from '../Themes'
 class SignupScreen extends Component {
   constructor(props) {
     super(props);
+    const {navigation} = this.props
+    const { state : {params}} = navigation
     this.state = {
+      // phone: params.phone,
       keyboardHeight: 0,
       email: '',
       zipCode: '',
@@ -40,7 +43,10 @@ class SignupScreen extends Component {
   }
 
   onNextHandle = () => {
-    this.props.navigation.navigate('Drawer')
+    const { email } = this.state
+
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    if( email === '' || reg.test(email) === false ) return Toast.show('Invalid email')
   }
 
   render () {

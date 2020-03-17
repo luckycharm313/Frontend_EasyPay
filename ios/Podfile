@@ -2,6 +2,7 @@
 # platform :ios, '9.0'
 
 target 'EasyPay' do
+  pod 'Stripe', '~> 14.0.0'
   # Comment the next line if you don't want to use dynamic frameworks
   #use_frameworks!
 
@@ -35,6 +36,10 @@ target 'EasyPay' do
   pod 'RNPermissions', :path => '../node_modules/react-native-permissions'
   permissions_path = '../node_modules/react-native-permissions/ios'
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
+  pod 'react-native-simple-toast', :path => '../node_modules/react-native-simple-toast'
+
+  pod 'tipsi-stripe', :path => '../node_modules/tipsi-stripe'
+
   target 'EasyPayTests' do
     inherit! :search_paths
     # Pods for testing

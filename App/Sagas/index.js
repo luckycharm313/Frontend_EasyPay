@@ -6,11 +6,13 @@ import DebugConfig from '../Config/DebugConfig'
 /* ------------- Types ------------- */
 
 import { StartupTypes } from '../Redux/StartupRedux'
+import { UserTypes } from '../Redux/UserRedux'
 
 
 /* ------------- Sagas ------------- */
 
 import { startup, isLogin } from './StartupSagas'
+import { sendPhoneRequest, verifiedPhone } from './UserSagas'
 
 /* ------------- API ------------- */
 
@@ -25,5 +27,8 @@ export default function * root () {
     // some sagas only receive an action
     takeLatest(StartupTypes.STARTUP, startup),
     takeLatest(StartupTypes.IS_LOGIN, isLogin),
+
+    takeLatest(UserTypes.SEND_PHONE_REQUEST, sendPhoneRequest, api),
+    takeLatest(UserTypes.VERIFIED_PHONE, verifiedPhone, api),
   ])
 }

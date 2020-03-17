@@ -69,7 +69,7 @@ const PrimaryNav = createStackNavigator(
   },
   {
     headerMode: "none",
-    initialRouteName: "LaunchScreen",
+    initialRouteName: "SignupScreen",
     navigationOptions: {
       headerStyle: styles.header,
       lazy: false

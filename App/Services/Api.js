@@ -15,16 +15,12 @@ const create = (baseURL = 'http://localhost:5000/api/') => {
     timeout: 10000
   })
   //
-  const signup = (params) => api.post(`user/signup`, params )
-  const signin = (params) => api.post(`user/signin`, params )
-  const loadUserProfile = (token) => api.post(`user/loadUserProfile`, {}, { headers : {'token': token}})
-  const updateUserProfile = (token, params) => api.post(`user/updateUserProfile`, params, { headers : {'token': token}})
+  const sendPhoneRequest = (params) => api.post(`user/phone`, params )
+  const verifiedPhone = (params) => api.post(`user/verify`, params )
 
   return {
-    signup,
-    signin,
-    loadUserProfile,
-    updateUserProfile
+    sendPhoneRequest,
+    verifiedPhone
   }
 }
 

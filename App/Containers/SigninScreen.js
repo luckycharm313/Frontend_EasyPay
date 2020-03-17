@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { SafeAreaView, View, TouchableOpacity, Text } from "react-native";
 import { connect } from "react-redux";
 import { Button } from "react-native-elements";
+import Toast from 'react-native-simple-toast'
 import Input from "../Components/Input";
 import Header from "../Components/Header";
+import UserAction from '../Redux/UserRedux'
 // Styles
 import styles from "./Styles/SigninScreenStyle";
-
 class SigninScreen extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +17,11 @@ class SigninScreen extends Component {
   }
 
   onVerifyHandle = () => {
-    this.props.navigation.navigate("VerifyPhoneScreen");
+    let regNumber = /^\d+$/ ;
+    const { phone } = this.state
+    if( phone === '' || regNumber.test(phone) === false ) return Toast.show('Phone is not correct. Must be number');
+    var params = { phone }
+    this.props.sendPhoneRequest(params)
   };
 
   render() {
@@ -54,7 +59,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    sendPhoneRequest: (params) => dispatch(UserAction.sendPhoneRequest(params)),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SigninScreen);

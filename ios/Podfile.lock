@@ -18,6 +18,9 @@ PODS:
     - React
   - react-native-camera/RN (3.19.0):
     - React
+  - react-native-simple-toast (1.0.0):
+    - React
+    - Toast (~> 4.0.0)
   - React/Core (0.59.9):
     - yoga (= 0.59.9.React)
   - React/CxxBridge (0.59.9):
@@ -77,12 +80,18 @@ PODS:
     - React
   - RNPermissions (2.0.9):
     - React
+  - Stripe (14.0.0)
+  - tipsi-stripe (7.5.1):
+    - React
+    - Stripe (~> 14.0.0)
+  - Toast (4.0.0)
   - yoga (0.59.9.React)
 
 DEPENDENCIES:
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - Permission-Camera (from `../node_modules/react-native-permissions/ios/Camera.podspec`)
   - react-native-camera (from `../node_modules/react-native-camera`)
+  - react-native-simple-toast (from `../node_modules/react-native-simple-toast`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
   - React/DevSupport (from `../node_modules/react-native`)
@@ -99,6 +108,8 @@ DEPENDENCIES:
   - RNAwesomeCardIO (from `../node_modules/react-native-awesome-card-io`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - RNPermissions (from `../node_modules/react-native-permissions`)
+  - Stripe (~> 14.0.0)
+  - tipsi-stripe (from `../node_modules/tipsi-stripe`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga/yoga.podspec`)
 
 SPEC REPOS:
@@ -106,6 +117,8 @@ SPEC REPOS:
     - boost-for-react-native
     - DoubleConversion
     - glog
+    - Stripe
+    - Toast
 
 EXTERNAL SOURCES:
   Folly:
@@ -116,12 +129,16 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native"
   react-native-camera:
     :path: "../node_modules/react-native-camera"
+  react-native-simple-toast:
+    :path: "../node_modules/react-native-simple-toast"
   RNAwesomeCardIO:
     :path: "../node_modules/react-native-awesome-card-io"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-community/async-storage"
   RNPermissions:
     :path: "../node_modules/react-native-permissions"
+  tipsi-stripe:
+    :path: "../node_modules/tipsi-stripe"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga/yoga.podspec"
 
@@ -133,11 +150,15 @@ SPEC CHECKSUMS:
   Permission-Camera: 8fe4753b02396489b11c5089e4f57bab7fe1ef42
   React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
   react-native-camera: 1f4c5be75a037b5573716a01d84ca0390c162954
+  react-native-simple-toast: 6c376bd79b1e255a4bee90a72ead6447f96ea10d
   RNAwesomeCardIO: caa47eefd8b6ae1986af25df3b86f9d8fbae9bb8
   RNCAsyncStorage: e0dd7c8a36543b4ef84969acd9f8aceba3a92dc2
   RNPermissions: 2f74237e97b08beda01e914301e12524ddddf5b8
+  Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
+  tipsi-stripe: 61c247493a58d7e8e0bf6ee6b014271f473d2b11
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: 1d558bf62f2fcce89b4631ef2507912b907aaa7e
+PODFILE CHECKSUM: 4cb007f06eef05d2bcb2aea38c3be2b3bdfa8490
 
 COCOAPODS: 1.8.4

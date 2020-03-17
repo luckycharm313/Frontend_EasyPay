@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { SafeAreaView, View, TouchableOpacity, Text } from 'react-native'
 import { connect } from 'react-redux'
 import CodeInput from 'react-native-confirmation-code-input'
+
+import UserAction from '../Redux/UserRedux'
 // Styles
 import styles from './Styles/VerifyPhoneScreenStyle'
 import { Colors } from '../Themes'
@@ -9,16 +11,19 @@ import { Colors } from '../Themes'
 class VerifyPhoneScreen extends Component {
   constructor(props) {
     super(props);
+    const {navigation} = this.props
+    const { state : {params}} = navigation
     this.state = {
-      value: '',
+      code: params.code,
+      phone: params.phone,
     }
   }
 
   _onFulfill = (isValid) => {
     if (isValid) {
-      this.props.navigation.navigate('SignupScreen')
-    } else {
-      
+      var params = { phone: this.state.phone }
+      this.props.verifiedPhone(params)
+    } else {      
       this.refs.codeInputRef.clear();
     }
   }
@@ -39,7 +44,7 @@ class VerifyPhoneScreen extends Component {
             inactiveColor={Colors.primaryLight}
             containerStyle={styles.codeContainer}
             codeInputStyle={styles.codeInput}
-            compareWithCode='1234'
+            compareWithCode={this.state.code}
             onFulfill={(isValid) => this._onFulfill(isValid)}
           />          
           <TouchableOpacity  onPress={() => this.props.navigation.navigate('SigninScreen')}>
@@ -58,6 +63,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    verifiedPhone: (params) => dispatch(UserAction.verifiedPhone(params)),
   }
 }
 
