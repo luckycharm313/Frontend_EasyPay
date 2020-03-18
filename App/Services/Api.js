@@ -17,10 +17,12 @@ const create = (baseURL = 'http://localhost:5000/api/') => {
   //
   const sendPhoneRequest = (params) => api.post(`user/phone`, params )
   const verifiedPhone = (params) => api.post(`user/verify`, params )
+  const addUserInfo = (params) => api.post(`user/add`, params )
 
   return {
     sendPhoneRequest,
-    verifiedPhone
+    verifiedPhone,
+    addUserInfo
   }
 }
 

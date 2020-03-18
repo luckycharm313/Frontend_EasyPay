@@ -10,9 +10,16 @@ export default StyleSheet.create({
     marginBottom: 20,
     marginTop: 50,
   },
+  listContainer: {
+    height: '60%'
+  },
+  bottomContainer: {
+    flex: 1,
+    justifyContent: 'flex-end'
+  },
   transactionContainer: {
     marginTop: 20,
-    marginBottom: 30,
+    marginBottom: 30,    
   },
   transactionItem: {
     backgroundColor: Colors.white,

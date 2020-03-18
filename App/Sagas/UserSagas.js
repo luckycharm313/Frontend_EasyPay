@@ -51,3 +51,22 @@ export function * verifiedPhone (api, action) {
     Toast.show('Request failed.');
   }
 }
+
+export function * addUserInfo (api, action) {
+  const { params } = action
+  
+  const response = yield call(api.addUserInfo, params)
+  // success?
+  console.log(response)
+  if (response.ok) {
+    const temp = path(['data'], response);
+    if (temp.code === 200) {
+      yield AsyncStorage.setItem(TOKEN, JSON.stringify(temp.payload));
+      yield put(NavigationActions.navigate({ routeName: 'Drawer' }));
+    } else {
+      Toast.show(temp.message);
+    }
+  } else {
+    Toast.show('Request failed.');
+  }
+}

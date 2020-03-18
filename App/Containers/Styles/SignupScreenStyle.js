@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { ApplicationStyles, Metrics, Colors } from '../../Themes/'
+import { ApplicationStyles, Metrics, Colors, Fonts } from '../../Themes/'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -13,5 +13,14 @@ export default StyleSheet.create({
     fontSize: 15,
     color: Colors.white,
     marginVertical: Metrics.mainVertical
+  },
+  cardContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',    
+  },
+  icon: {
+    fontSize: Fonts.size.h6,
+    color: Colors.white,
+    marginRight: Metrics.section.small    
   }
 })

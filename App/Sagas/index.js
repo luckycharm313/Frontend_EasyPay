@@ -12,7 +12,7 @@ import { UserTypes } from '../Redux/UserRedux'
 /* ------------- Sagas ------------- */
 
 import { startup, isLogin } from './StartupSagas'
-import { sendPhoneRequest, verifiedPhone } from './UserSagas'
+import { sendPhoneRequest, verifiedPhone, addUserInfo } from './UserSagas'
 
 /* ------------- API ------------- */
 
@@ -30,5 +30,6 @@ export default function * root () {
 
     takeLatest(UserTypes.SEND_PHONE_REQUEST, sendPhoneRequest, api),
     takeLatest(UserTypes.VERIFIED_PHONE, verifiedPhone, api),
+    takeLatest(UserTypes.ADD_USER_INFO, addUserInfo, api),
   ])
 }

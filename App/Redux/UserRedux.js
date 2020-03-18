@@ -6,6 +6,7 @@ import Immutable from 'seamless-immutable'
 const { Types, Creators } = createActions({
   sendPhoneRequest: ['params'],
   verifiedPhone: ['params'],
+  addUserInfo: ['params'],
 })
 
 export const UserTypes = Types
@@ -34,4 +35,5 @@ export const request = (state, action) =>
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.SEND_PHONE_REQUEST]: request,
   [Types.VERIFIED_PHONE]: request,
+  [Types.ADD_USER_INFO]: request,
 })

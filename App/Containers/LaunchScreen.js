@@ -2,10 +2,18 @@ import React, { Component } from 'react'
 import { SafeAreaView, View, Image } from 'react-native'
 import { connect } from 'react-redux'
 import { Button } from 'react-native-elements'
+import SplashScreen from 'react-native-splash-screen'
+import StartupAction from '../Redux/StartupRedux'
 // Styles
 import styles from './Styles/LaunchScreenStyle'
 import { Images } from '../Themes/'
 class LaunchScreen extends Component {
+
+  componentWillMount() {
+    this.props.isLogin();
+    setTimeout(() => SplashScreen.hide(), 1000)
+  }
+
   onOneTimePaymentHandle = () => {
     this.props.navigation.navigate('PaymentMethodScreen')
   }
@@ -60,6 +68,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    isLogin: () => dispatch(StartupAction.isLogin())
   }
 }
 

@@ -2,9 +2,14 @@ import React, { Component } from 'react'
 import { SafeAreaView, View, ScrollView, Keyboard, LayoutAnimation, Text } from 'react-native'
 import { connect } from 'react-redux'
 import { Button } from 'react-native-elements'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import stripe from 'tipsi-stripe'
 import Input from '../Components/Input'
-import { AddCard } from 'react-native-checkout'
+
+import UserAction from '../Redux/UserRedux'
 // Styles
+import { STRIPE_PUBLISHABLE_KEY, METCHANT_ID } from '../Services/Constant'
+
 import styles from './Styles/SignupScreenStyle'
 import { Colors, Metrics, Fonts } from '../Themes'
 
@@ -14,10 +19,11 @@ class SignupScreen extends Component {
     const {navigation} = this.props
     const { state : {params}} = navigation
     this.state = {
-      // phone: params.phone,
+      phone: params.phone,
       keyboardHeight: 0,
       email: '',
       zipCode: '',
+      stripe_token: null
     }
   }
 
@@ -25,6 +31,7 @@ class SignupScreen extends Component {
     this.keyboardDidShowSub = Keyboard.addListener('keyboardDidShow', this.handleKeyboardDidShow);
     this.keyboardDidHideSub = Keyboard.addListener('keyboardDidHide', this.handleKeyboardDidHide);
     // this.props.isLogin();
+   
   }
 
   componentWillUnmount() {
@@ -42,12 +49,32 @@ class SignupScreen extends Component {
     this.setState({keyboardHeight: 0})
   }
 
-  onNextHandle = () => {
-    const { email } = this.state
+  onNextHandle = async () => {
+    const { email, zipCode, stripe_token, phone } = this.state
 
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     if( email === '' || reg.test(email) === false ) return Toast.show('Invalid email')
+    if( zipCode === '' ) return Toast.show('Zip Code is empty.')
+    if( stripe_token === null ) return Toast.show('Please add a Card.')
+    var params = {
+      phone,
+      email,
+      zip_code: zipCode,
+      stripe_token
+    }
+    this.props.addUserInfo(params)
   }
+
+  onAddingHandle = async () => {
+    stripe.setOptions({
+      publishableKey: STRIPE_PUBLISHABLE_KEY,
+      androidPayMode: 'test', // Android only
+    })
+
+    const stripe_token = await stripe.paymentRequestWithCardForm();
+    this.setState({ stripe_token })
+  }
+
 
   render () {
     return (
@@ -63,7 +90,7 @@ class SignupScreen extends Component {
               placeholder='Zip Code'
               value={this.state.zipCode} />
             <View style={{marginTop: 10}}>
-              <AddCard
+              {/* <AddCard
                 addCardHandler={(cardNumber, cardExpiry, cardCvc) => {
                   console.log(`${cardNumber} ${cardExpiry} ${cardCvc}`)
                   return Promise.resolve(cardNumber) //return a promise when you're done
@@ -96,8 +123,24 @@ class SignupScreen extends Component {
                 activityIndicatorColor={Colors.primaryLight}
                 addCardButtonText="Add Card"
                 scanCardVisible={false}
-                scanCardAfterScanButtonText="Scan Card Again" />
+                scanCardAfterScanButtonText="Scan Card Again" /> */}
             </View>
+            {
+              this.state.stripe_token ?
+              <View style={styles.cardContainer}>
+                <Icon name="check-circle" style={styles.icon} />
+                <Text style={[styles.policyText, { fontWeight: '800' }]}>Card is Added</Text>
+              </View>              
+              :
+              <Button
+                title='Add Card'
+                titleStyle={styles.buttonTitleStyle}
+                buttonStyle={styles.buttonStyle}
+                containerStyle={[ styles.buttonContainerStyle ]}
+                onPress={this.onAddingHandle}
+              />
+            }
+            
             <Text style={styles.policyText}>Adding your Card allows you to quickly make payments. You'll also enjoy Exclusive Discounts and perks! We are bringing back privacy to payment.</Text>
             <Button
               title='NEXT'
@@ -121,6 +164,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    addUserInfo: (params) => dispatch(UserAction.addUserInfo(params)),
   }
 }
 
