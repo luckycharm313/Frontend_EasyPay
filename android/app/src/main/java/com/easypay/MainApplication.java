@@ -7,7 +7,6 @@ import com.gettipsi.stripe.StripeReactPackage;
 import com.reactnativecommunity.rnpermissions.RNPermissionsPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import org.reactnative.camera.RNCameraPackage;
-import com.cardio.RNCardIOPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.horcrux.svg.SvgPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
@@ -37,7 +36,6 @@ public class MainApplication extends Application implements ReactApplication {
             new RNPermissionsPackage(),
             new AsyncStoragePackage(),
             new RNCameraPackage(),
-            new RNCardIOPackage(),
             new VectorIconsPackage(),
             new SvgPackage(),
             new SplashScreenReactPackage(),

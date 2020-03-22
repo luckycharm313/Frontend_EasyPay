@@ -89,42 +89,6 @@ class SignupScreen extends Component {
               onChangeText={(zipCode)=>this.setState({zipCode})}
               placeholder='Zip Code'
               value={this.state.zipCode} />
-            <View style={{marginTop: 10}}>
-              {/* <AddCard
-                addCardHandler={(cardNumber, cardExpiry, cardCvc) => {
-                  console.log(`${cardNumber} ${cardExpiry} ${cardCvc}`)
-                  return Promise.resolve(cardNumber) //return a promise when you're done
-                }}
-                styles={{
-                  errorTextContainer: {
-                    height: null,
-                    paddingVertical: 10,
-                  },
-                  addButton: {
-                    display: 'none',
-                    marginTop: 0,
-                    marginBottom: 0,
-                    borderWidth: 1,
-                    borderColor: Colors.white,
-                    backgroundColor: Colors.primaryLight,
-                    borderRadius: Metrics.mainRadius,
-                  },
-                  errorText: {
-                    fontSize: 14,
-                    fontFamily: Fonts.type.bold,
-                    color: '#FA4F10',
-                  },
-                  addCardContainer: {
-                    borderRadius: Metrics.mainRadius,
-                    backgroundColor: Colors.transparent
-                  }
-                }}
-                placeholderTextColor={Colors.textHintColor}
-                activityIndicatorColor={Colors.primaryLight}
-                addCardButtonText="Add Card"
-                scanCardVisible={false}
-                scanCardAfterScanButtonText="Scan Card Again" /> */}
-            </View>
             {
               this.state.stripe_token ?
               <View style={styles.cardContainer}>

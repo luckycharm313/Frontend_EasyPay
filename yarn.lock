@@ -8176,7 +8176,7 @@ lodash.throttle@^4.1.1:
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
 
-lodash@4.17.15, lodash@^4.0.0, lodash@^4.14.2, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
+lodash@4.17.15, lodash@^4.0.0, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
@@ -9634,13 +9634,6 @@ path-type@^3.0.0:
   dependencies:
     pify "^3.0.0"
 
-payment@^2.2.1:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/payment/-/payment-2.3.0.tgz#b2a95e9c3052459647da3926b8b66c553d93098f"
-  integrity sha1-sqlenDBSRZZH2jkmuLZsVT2TCY8=
-  dependencies:
-    qj "~2.0.0"
-
 pbkdf2@^3.0.3:
   version "3.0.17"
   resolved "https://registry.yarnpkg.com/pbkdf2/-/pbkdf2-3.0.17.tgz#976c206530617b14ebb32114239f7b09336e93a6"
@@ -10091,11 +10084,6 @@ punycode@^2.1.0, punycode@^2.1.1:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
-qj@~2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/qj/-/qj-2.0.0.tgz#054dd3b75ce018728d23a0605f030dfda0bd158a"
-  integrity sha1-BU3Tt1zgGHKNI6BgXwMN/aC9FYo=
-
 qs@6.7.0:
   version "6.7.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
@@ -10387,20 +10375,6 @@ react-native-animatable@^1.2.4, react-native-animatable@^1.3.3:
   dependencies:
     prop-types "^15.7.2"
 
-react-native-awesome-card-io@0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/react-native-awesome-card-io/-/react-native-awesome-card-io-0.7.0.tgz#102a068491fac055345d7dea89ae83584487825b"
-  integrity sha512-Di/v5xr81TVOQIkcstGx74ECTI9Cn6kYBbnxhBzoWZw0lFZuPezBcqYz3RDoac0yU9MbiNEw1u3GhVCVvi8Q4A==
-  dependencies:
-    prop-types "^15.5.10"
-
-react-native-awesome-card-io@^0.8.2:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/react-native-awesome-card-io/-/react-native-awesome-card-io-0.8.2.tgz#842f8df89a55f15db21b3d2a145b5c7e4de55269"
-  integrity sha512-nMeusW4M74pTFgc/HqKyaor7qKvLo/lJbZcqmFWWdxuyt4+ihcVZvhj/d1DSDXL098AJETvD+KVy98D7WSM3uQ==
-  dependencies:
-    prop-types "^15.6.2"
-
 react-native-button@^2.3.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/react-native-button/-/react-native-button-2.4.0.tgz#42b487073a7ce7c54ab503f77c6ced1ab95742bf"
@@ -10408,24 +10382,12 @@ react-native-button@^2.3.0:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-camera@^3.19.0:
-  version "3.19.0"
-  resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-3.19.0.tgz#32c43908d3ba398c89d21437a9dba2ebb17f3896"
-  integrity sha512-ef3ccKUu5nYRvc2fXlnRDsrBPBygkXoMvk0c/mrgfLYgr4X0G/8Qg7t+MOAisQ0V6RastHVygpjgAW+dxcZnyA==
+react-native-camera@^2.11.1:
+  version "2.11.2"
+  resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-2.11.2.tgz#4936bb0a484e8ba7d0b3ecf28fa7c161833b1ac0"
+  integrity sha512-9Fw5zpOJqaZOa/n1SUG141sbD5b77/EWSv0VTBvP66SneN4tuuS4tYtM0YndqF+BRlyAggjYGJPDs3L7BMYsmQ==
   dependencies:
     prop-types "^15.6.2"
-
-react-native-checkout@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/react-native-checkout/-/react-native-checkout-0.0.8.tgz#6fc019de4777aab4e82b29561dfa49cea5156e3a"
-  integrity sha512-mNUC5IN9wMJTqv10fHkalUmKGc0023jeWj2MCg9hvKw95GWA0+Wbqjykp49Pb9pQ/JLMl8GPivHleWSUH4dEgg==
-  dependencies:
-    lodash "^4.14.2"
-    payment "^2.2.1"
-    prop-types "^15.6.0"
-    react-native-awesome-card-io "0.7.0"
-    react-native-keyboard-spacer "^0.4.1"
-    string "^3.3.3"
 
 react-native-config@0.11.7:
   version "0.11.7"
@@ -10470,11 +10432,6 @@ react-native-gesture-handler@1.3.0:
     hoist-non-react-statics "^2.3.1"
     invariant "^2.2.2"
     prop-types "^15.5.10"
-
-react-native-keyboard-spacer@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/react-native-keyboard-spacer/-/react-native-keyboard-spacer-0.4.1.tgz#46f18a320432098a25ea9fa89f5143dd254d332d"
-  integrity sha1-RvGKMgQyCYol6p+on1FD3SVNMy0=
 
 react-native-measureme@0.0.2:
   version "0.0.2"
@@ -12129,11 +12086,6 @@ string.prototype.trimright@^2.1.0:
   dependencies:
     define-properties "^1.1.3"
     function-bind "^1.1.1"
-
-string@^3.3.3:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/string/-/string-3.3.3.tgz#5ea211cd92d228e184294990a6cc97b366a77cb0"
-  integrity sha1-XqIRzZLSKOGEKUmQpsyXs2anfLA=
 
 string_decoder@^1.0.0, string_decoder@^1.1.1:
   version "1.3.0"

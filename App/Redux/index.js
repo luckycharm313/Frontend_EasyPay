@@ -9,6 +9,7 @@ export const reducers = combineReducers({
   nav: require('./NavigationRedux').reducer,
   startup : require('./StartupRedux').reducer,
   user : require('./UserRedux').reducer,
+  receipt : require('./ReceiptRedux').reducer,
 })
 
 export default () => {

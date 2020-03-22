@@ -5,7 +5,7 @@ import { Button } from "react-native-elements";
 import Toast from 'react-native-simple-toast'
 import Input from "../Components/Input";
 import Header from "../Components/Header";
-import UserAction from '../Redux/UserRedux'
+import UserAction from '../Redux/UserRedux';
 // Styles
 import styles from "./Styles/SigninScreenStyle";
 class SigninScreen extends Component {

@@ -10,13 +10,13 @@ PODS:
     - RNPermissions
   - React (0.59.9):
     - React/Core (= 0.59.9)
-  - react-native-camera (3.19.0):
+  - react-native-camera (2.11.2):
     - React
-    - react-native-camera/RCT (= 3.19.0)
-    - react-native-camera/RN (= 3.19.0)
-  - react-native-camera/RCT (3.19.0):
+    - react-native-camera/RCT (= 2.11.2)
+    - react-native-camera/RN (= 2.11.2)
+  - react-native-camera/RCT (2.11.2):
     - React
-  - react-native-camera/RN (3.19.0):
+  - react-native-camera/RN (2.11.2):
     - React
   - react-native-simple-toast (1.0.0):
     - React
@@ -74,8 +74,6 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
-  - RNAwesomeCardIO (0.8.2):
-    - React
   - RNCAsyncStorage (1.8.1):
     - React
   - RNPermissions (2.0.9):
@@ -105,7 +103,6 @@ DEPENDENCIES:
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTVibration (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
-  - RNAwesomeCardIO (from `../node_modules/react-native-awesome-card-io`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - Stripe (~> 14.0.0)
@@ -131,8 +128,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-camera"
   react-native-simple-toast:
     :path: "../node_modules/react-native-simple-toast"
-  RNAwesomeCardIO:
-    :path: "../node_modules/react-native-awesome-card-io"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-community/async-storage"
   RNPermissions:
@@ -149,9 +144,8 @@ SPEC CHECKSUMS:
   glog: 1de0bb937dccdc981596d3b5825ebfb765017ded
   Permission-Camera: 8fe4753b02396489b11c5089e4f57bab7fe1ef42
   React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
-  react-native-camera: 1f4c5be75a037b5573716a01d84ca0390c162954
+  react-native-camera: b5e6e34586ca6f588b0c736dcabfe0aad5ce2f3e
   react-native-simple-toast: 6c376bd79b1e255a4bee90a72ead6447f96ea10d
-  RNAwesomeCardIO: caa47eefd8b6ae1986af25df3b86f9d8fbae9bb8
   RNCAsyncStorage: e0dd7c8a36543b4ef84969acd9f8aceba3a92dc2
   RNPermissions: 2f74237e97b08beda01e914301e12524ddddf5b8
   Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
@@ -159,6 +153,6 @@ SPEC CHECKSUMS:
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: 4cb007f06eef05d2bcb2aea38c3be2b3bdfa8490
+PODFILE CHECKSUM: 4c8e02066c8363e6f4ac4d30340a0d47cafc4664
 
 COCOAPODS: 1.8.4

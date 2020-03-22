@@ -13,6 +13,7 @@ import { Button } from 'react-native-elements'
 import QRCodeScanner from 'react-native-qrcode-scanner'
 import {check, openSettings, PERMISSIONS, RESULTS} from 'react-native-permissions'
 import Header from '../Components/Header'
+import ReceiptAction from '../Redux/ReceiptRedux';
 // Styles
 import { Colors, Metrics } from '../Themes';
 import styles from './Styles/ScanScreenStyle';
@@ -21,8 +22,14 @@ class ScanScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isPay: true,
+      isPay: false,
       isScan: false
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.isLoad !== this.props.isLoad && nextProps.isLoad === true){
+      this.setState({ isPay: true, isScan: false })
     }
   }
 
@@ -76,6 +83,17 @@ class ScanScreen extends Component {
     this.setState({ isScan: false })
   }
 
+  onSuccess = ( e ) => {
+    let data = JSON.parse(e.data)
+    console.log({data})
+    var params = {
+      receipt_id: data.receipt_id, //4
+      sub_receipt_id: data.sub_receipt_id //0
+    }
+
+    this.props.getReceipt(params)
+  }
+
   renderItem = (e) => {
     return (
       <View style={styles.orderItem}>
@@ -121,7 +139,8 @@ class ScanScreen extends Component {
   }
 
   render() {  
-    const {isPay, isScan} = this.state
+    const { isPay, isScan } = this.state
+    console.log(this.props.receiptInfo)
     return (
       <SafeAreaView style={styles.container}>
         <Header leftButton="setting" navigation={this.props.navigation}/>
@@ -129,7 +148,7 @@ class ScanScreen extends Component {
           <View style={{flex: 1}}>
             <QRCodeScanner
               cameraStyle={{height: '100%'}}
-              onRead={() => console.log('')}
+              onRead={this.onSuccess}
               bottomContent={
                 <View style={styles.btnWrapper}>
                   <Button title='Cancel' buttonStyle={styles.btnCancel} titleStyle={styles.buttonTitleStyle} onPress={this.onCancelHandle} />
@@ -175,12 +194,17 @@ class ScanScreen extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {};
+const mapStateToProps = ({ receipt }) => {
+  return {
+    isLoad: receipt.isLoad,
+    receiptInfo: receipt.receiptInfo
+  };
 };
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    getReceipt: (params) => dispatch(ReceiptAction.getReceipt(params)),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ScanScreen);

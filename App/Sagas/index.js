@@ -7,12 +7,14 @@ import DebugConfig from '../Config/DebugConfig'
 
 import { StartupTypes } from '../Redux/StartupRedux'
 import { UserTypes } from '../Redux/UserRedux'
+import { ReceiptTypes } from '../Redux/ReceiptRedux'
 
 
 /* ------------- Sagas ------------- */
 
 import { startup, isLogin } from './StartupSagas'
 import { sendPhoneRequest, verifiedPhone, addUserInfo } from './UserSagas'
+import { getReceipt } from './ReceiptSagas'
 
 /* ------------- API ------------- */
 
@@ -31,5 +33,7 @@ export default function * root () {
     takeLatest(UserTypes.SEND_PHONE_REQUEST, sendPhoneRequest, api),
     takeLatest(UserTypes.VERIFIED_PHONE, verifiedPhone, api),
     takeLatest(UserTypes.ADD_USER_INFO, addUserInfo, api),
+
+    takeLatest(ReceiptTypes.GET_RECEIPT, getReceipt, api),
   ])
 }

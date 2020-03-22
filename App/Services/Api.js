@@ -18,11 +18,13 @@ const create = (baseURL = 'http://localhost:5000/api/') => {
   const sendPhoneRequest = (params) => api.post(`user/phone`, params )
   const verifiedPhone = (params) => api.post(`user/verify`, params )
   const addUserInfo = (params) => api.post(`user/add`, params )
+  const getReceipt = (token, params) => api.post(`receipt/get`, params, { headers : {'token': token}} )
 
   return {
     sendPhoneRequest,
     verifiedPhone,
-    addUserInfo
+    addUserInfo,
+    getReceipt
   }
 }
 

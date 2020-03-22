@@ -15,6 +15,7 @@ export default StyleSheet.create({
     marginVertical: Metrics.mainVertical
   },
   cardContainer: {
+    marginTop: 10,
     flexDirection: 'row',
     alignItems: 'center',    
   },
