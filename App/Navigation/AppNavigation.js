@@ -31,19 +31,7 @@ const Drawer = createDrawerNavigator(
       navigationOptions: {
         title: "Scan"
       }
-    },
-    TipScreen: { 
-      screen: TipScreen,
-      navigationOptions: {
-        title: "Tip"
-      }
-    },
-    ResultScreen: {
-      screen: ResultScreen,
-      navigationOptions: {
-        title: "Result"
-      }
-    },    
+    }        
   },
   {
     contentComponent: DrawerScreen,
@@ -60,6 +48,18 @@ const PrimaryNav = createStackNavigator(
     SignupScreen: { screen: SignupScreen },
     PaymentMethodScreen: { screen: PaymentMethodScreen },
     CardScreen: { screen: CardScreen },
+    TipScreen: { 
+      screen: TipScreen,
+      navigationOptions: {
+        title: "Tip"
+      }
+    },
+    ResultScreen: {
+      screen: ResultScreen,
+      navigationOptions: {
+        title: "Result"
+      }
+    },
     Drawer: {
       screen: Drawer,
       navigationOptions: {

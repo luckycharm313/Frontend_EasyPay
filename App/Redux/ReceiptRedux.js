@@ -5,7 +5,8 @@ import Immutable from 'seamless-immutable'
 
 const { Types, Creators } = createActions({
   getReceipt: ['params'],
-  getReceiptSuccess: ['receiptInfo']
+  getReceiptSuccess: ['receiptInfo'],
+  payReceipt: ['params'],
 })
 
 export const ReceiptTypes = Types
@@ -35,4 +36,5 @@ export const getReceiptSuccess = (state, {receiptInfo}) =>
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.GET_RECEIPT]: request,
   [Types.GET_RECEIPT_SUCCESS]: getReceiptSuccess,
+  [Types.PAY_RECEIPT]: request,
 })

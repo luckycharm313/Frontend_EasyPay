@@ -79,5 +79,19 @@ export default StyleSheet.create({
     width: '30%',
     fontSize: 17,
     color: Colors.black,
+  },
+  splitText: {
+    marginTop: Metrics.section.large,
+    marginBottom: Metrics.section.small,
+    fontSize: Fonts.size.medium,
+    color: Colors.black,
+    fontWeight: '800',
+    textAlign: 'center'
+  },
+  splitCostText: {
+    textAlign: 'center',
+    fontSize: Fonts.size.medium,
+    color: Colors.error,
+    fontWeight: '700'
   }
 })

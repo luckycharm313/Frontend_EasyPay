@@ -14,6 +14,7 @@ import QRCodeScanner from 'react-native-qrcode-scanner'
 import {check, openSettings, PERMISSIONS, RESULTS} from 'react-native-permissions'
 import Header from '../Components/Header'
 import ReceiptAction from '../Redux/ReceiptRedux';
+import { currencyFormat } from '../Services/Constant'
 // Styles
 import { Colors, Metrics } from '../Themes';
 import styles from './Styles/ScanScreenStyle';
@@ -76,7 +77,8 @@ class ScanScreen extends Component {
       this.setState({isScan: true, isPay: false})
   }
   onPayHandle = () => {
-    this.props.navigation.navigate('TipScreen')
+    this.setState({isScan: false, isPay: false})
+    this.props.navigation.navigate('TipScreen', { receiptInfo: this.props.receiptInfo })
   }
 
   onCancelHandle = () => {
@@ -94,45 +96,68 @@ class ScanScreen extends Component {
     this.props.getReceipt(params)
   }
 
-  renderItem = (e) => {
+  renderItem = ({ item }) => {
+    if( Object.keys(this.props.receiptInfo.sub_receipts).length > 0 ) return null;
     return (
       <View style={styles.orderItem}>
-        <Text style={styles.orderLeft}>1 horse beer</Text>
-        <Text style={styles.orderRight}>9.00</Text>
+        <Text style={styles.orderLeft}>{item.quantity}&nbsp;{item.name}</Text>
+        <Text style={styles.orderRight}>{currencyFormat(parseFloat(item.price) * parseInt(item.quantity))}</Text>
       </View>
     )
   }
 
   renderFooter = () => {
+    let data = this.props.receiptInfo.receipt
+    let sub_receipts = this.props.receiptInfo.sub_receipts
+
     return (
       <View style={{marginBottom: 30}}>
         <View style={[styles.orderItem, { marginTop: 30 }]}>
           <Text style={styles.totalLeft}>Subtotal</Text>
-          <Text style={styles.totalRight}>14.00</Text>
+          <Text style={styles.totalRight}>{currencyFormat(data.sub_total)}</Text>
         </View>
         <View style={styles.orderItem}>
           <Text style={styles.totalLeft}>Tax</Text>
-          <Text style={styles.totalRight}>2.00</Text>
+          <Text style={styles.totalRight}>{currencyFormat(data.tax)}</Text>
         </View>
         <View style={styles.orderItem}>
           <Text style={[styles.totalLeft, { fontWeight: '800' }]}>Total</Text>
-          <Text style={[styles.totalRight, { fontWeight: '800' }]}>16.00</Text>
+          <Text style={[styles.totalRight, { fontWeight: '800' }]}>{currencyFormat(data.total)}</Text>
         </View>
+        {
+          Object.keys(this.props.receiptInfo.sub_receipts).length > 0 &&
+            <View>
+              <Dash style={{ width: '100%', height:1, marginVertical: Metrics.mainVertical }}/>
+              <Text style={styles.splitText}>PAYMENT ONE</Text>
+              <Text style={styles.splitCostText}>{currencyFormat(sub_receipts.cost)}</Text>
+            </View>
+        }
       </View>
     )
   }
 
   renderHeader = () => {
+    let data = this.props.receiptInfo.employee;
+    let receipt = this.props.receiptInfo.receipt;
+    let sub_receipts = this.props.receiptInfo.sub_receipts;
+
     return (
       <View style={styles.paperHeaderContainer}>
-        <Text style={styles.textResName}>Tom's Cafe</Text>
-        <Text style={styles.textAddressName}>(702)220-0000</Text>
-        <Text style={styles.textAddressName}>111, your address</Text>
-        <Text style={styles.textAddressName}>Denver, CO 80204</Text>
+        <Text style={styles.textResName}>{data.biz_name}</Text>
+        <Text style={styles.textAddressName}>{data.biz_phone}</Text>
+        <Text style={styles.textAddressName}>{data.biz_address}</Text>
+        {/* <Text style={styles.textAddressName}>Denver, CO 80204</Text> */}
         <Dash style={{ width: '100%', height:1, marginVertical: 15 }}/>
+        {
+          Object.keys(this.props.receiptInfo.sub_receipts).length > 0 &&
+            <Text style={styles.splitText}>SPLIT CHECK</Text>
+        }
         <View style={[styles.orderItem, { marginVertical: 10 }]}>
           <Text style={[styles.totalLeft, { fontWeight: '800'} ]}>Receipt No</Text>
-          <Text style={[styles.totalRight, { width: null, fontWeight: '800' }]}>0001</Text>
+          <Text style={[styles.totalRight, { width: null, fontWeight: '800' }]}>
+            {receipt.id}
+            { Object.keys(this.props.receiptInfo.sub_receipts).length > 0 && '-'+sub_receipts.id}
+          </Text>
         </View>
       </View>
     )
@@ -161,15 +186,18 @@ class ScanScreen extends Component {
             {
               isPay ? 
                 <View style={styles.payContainer}>
-                   <FlatList
-                    style={styles.paperContainer}
-                    showsVerticalScrollIndicator={false}
-                    data={[1,2,3,1,1,1,52,2,2,2,2]}
-                    keyExtractor={(item, index) => index.toString()}
-                    renderItem={this.renderItem}
-                    ListHeaderComponent={this.renderHeader}
-                    ListFooterComponent={this.renderFooter}
-                  />                 
+                  {
+                    Object.keys(this.props.receiptInfo).length > 0 &&
+                      <FlatList
+                        style={styles.paperContainer}
+                        showsVerticalScrollIndicator={false}
+                        data={this.props.receiptInfo.orders}
+                        keyExtractor={(item, index) => index.toString()}
+                        renderItem={this.renderItem}
+                        ListHeaderComponent={this.renderHeader}
+                        ListFooterComponent={this.renderFooter}
+                      />
+                  }                   
                   <Button
                     title='TAP TO PAY'
                     titleStyle={styles.buttonTitleStyle}

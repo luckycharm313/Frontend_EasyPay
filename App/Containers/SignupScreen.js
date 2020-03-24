@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
-import { SafeAreaView, View, ScrollView, Keyboard, LayoutAnimation, Text } from 'react-native'
+import { SafeAreaView, View, ScrollView, Keyboard, LayoutAnimation, Text, Platform } from 'react-native'
 import { connect } from 'react-redux'
 import { Button } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import stripe from 'tipsi-stripe'
+import Toast from 'react-native-simple-toast'
+import { PaymentCardTextField } from 'tipsi-stripe'
 import Input from '../Components/Input'
 
 import UserAction from '../Redux/UserRedux'
 // Styles
-import { STRIPE_PUBLISHABLE_KEY, METCHANT_ID } from '../Services/Constant'
-
 import styles from './Styles/SignupScreenStyle'
 import { Colors, Metrics, Fonts } from '../Themes'
 
@@ -23,15 +22,19 @@ class SignupScreen extends Component {
       keyboardHeight: 0,
       email: '',
       zipCode: '',
-      stripe_token: null
+      valid: false,
+      card: {
+        number: '',
+        expMonth: 0,
+        expYear: 0,
+        cvc: '',
+      },
     }
   }
 
   componentWillMount() {
     this.keyboardDidShowSub = Keyboard.addListener('keyboardDidShow', this.handleKeyboardDidShow);
-    this.keyboardDidHideSub = Keyboard.addListener('keyboardDidHide', this.handleKeyboardDidHide);
-    // this.props.isLogin();
-   
+    this.keyboardDidHideSub = Keyboard.addListener('keyboardDidHide', this.handleKeyboardDidHide);   
   }
 
   componentWillUnmount() {
@@ -45,42 +48,56 @@ class SignupScreen extends Component {
     this.setState({keyboardHeight})
   }
 
+  testID(id) {
+    return Platform.OS === 'android' ?
+      { accessible: true, accessibilityLabel: id } :
+      { testID: id }
+  }
+
   handleKeyboardDidHide = () => {
     this.setState({keyboardHeight: 0})
   }
 
   onNextHandle = async () => {
-    const { email, zipCode, stripe_token, phone } = this.state
+    const { email, zipCode, card, phone, valid } = this.state
 
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     if( email === '' || reg.test(email) === false ) return Toast.show('Invalid email')
     if( zipCode === '' ) return Toast.show('Zip Code is empty.')
-    if( stripe_token === null ) return Toast.show('Please add a Card.')
+    if( !valid ) return Toast.show('Please add a Card.')
     var params = {
       phone,
       email,
       zip_code: zipCode,
-      stripe_token
+      card
     }
+    console.log(params)
     this.props.addUserInfo(params)
   }
 
-  onAddingHandle = async () => {
-    stripe.setOptions({
-      publishableKey: STRIPE_PUBLISHABLE_KEY,
-      androidPayMode: 'test', // Android only
+  handleFieldParamsChange = (valid, card) => {
+    this.setState({
+      valid,
+      card,
     })
-
-    const stripe_token = await stripe.paymentRequestWithCardForm();
-    this.setState({ stripe_token })
   }
-
 
   render () {
     return (
       <SafeAreaView style={styles.container}>
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
           <View style={[styles.mainPaddingContainer, styles.screenContainer]}>
+            <View style={{ marginBottom: Metrics.mainVertical }}>
+              <PaymentCardTextField
+                accessible={false}
+                style={styles.field}
+                onParamsChange={this.handleFieldParamsChange}
+                numberPlaceholder="XXXX XXXX XXXX XXXX"
+                expirationPlaceholder="MM/YY"
+                cvcPlaceholder="CVC"
+                {...this.testID('cardTextField')}
+              />
+            </View>            
             <Input
               onChangeText={(email)=>this.setState({email})}
               placeholder='Email'
@@ -89,22 +106,6 @@ class SignupScreen extends Component {
               onChangeText={(zipCode)=>this.setState({zipCode})}
               placeholder='Zip Code'
               value={this.state.zipCode} />
-            {
-              this.state.stripe_token ?
-              <View style={styles.cardContainer}>
-                <Icon name="check-circle" style={styles.icon} />
-                <Text style={[styles.policyText, { fontWeight: '800' }]}>Card is Added</Text>
-              </View>              
-              :
-              <Button
-                title='Add Card'
-                titleStyle={styles.buttonTitleStyle}
-                buttonStyle={styles.buttonStyle}
-                containerStyle={[ styles.buttonContainerStyle ]}
-                onPress={this.onAddingHandle}
-              />
-            }
-            
             <Text style={styles.policyText}>Adding your Card allows you to quickly make payments. You'll also enjoy Exclusive Discounts and perks! We are bringing back privacy to payment.</Text>
             <Button
               title='NEXT'
@@ -114,8 +115,8 @@ class SignupScreen extends Component {
               onPress={this.onNextHandle}
             />
           </View>
+          <View style={{height: this.state.keyboardHeight}}/>  
         </ScrollView>
-        <View style={{height: this.state.keyboardHeight}}/>      
       </SafeAreaView>
     )
   }

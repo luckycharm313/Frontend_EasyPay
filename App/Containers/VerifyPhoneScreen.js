@@ -34,7 +34,7 @@ class VerifyPhoneScreen extends Component {
       <SafeAreaView style={styles.container}>
         <View style={styles.mainPaddingContainer}>
           <Text style={[styles.labelText, { marginTop: 50 }]}>What is your verification code?</Text>
-          <Text style={styles.descriptionText}>Check your SMS message. We've sent you the PIN at 190273</Text>
+          <Text style={styles.descriptionText}>Check your SMS message. We've sent you the PIN at {this.state.phone}</Text>
           <CodeInput
             ref="codeInputRef"
             codeLength={4}

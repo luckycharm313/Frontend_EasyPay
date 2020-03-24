@@ -23,5 +23,13 @@ export default StyleSheet.create({
     fontSize: Fonts.size.h6,
     color: Colors.white,
     marginRight: Metrics.section.small    
+  },
+  field: {
+    color: '#449aeb',
+    borderColor: '#000000',
+    borderWidth: 1,
+    borderRadius: 5,
+    backgroundColor: '#FFFFFF',
+    overflow: 'hidden',
   }
 })

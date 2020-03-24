@@ -54,8 +54,9 @@ export function * verifiedPhone (api, action) {
 
 export function * addUserInfo (api, action) {
   const { params } = action
-  
-  const response = yield call(api.addUserInfo, params)
+  yield put(StartupActions.loadProgress(true));
+  const response = yield call(api.addUserInfo, params);
+  yield put(StartupActions.loadProgress(false));
   // success?
   console.log(response)
   if (response.ok) {

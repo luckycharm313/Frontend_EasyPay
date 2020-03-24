@@ -6,6 +6,7 @@ import * as Animatable from "react-native-animatable";
 import StarRating from 'react-native-star-rating'
 
 import RainAnimation from "../Components/RainAnimation";
+import { currencyFormat } from '../Services/Constant'
 // Styles
 import { Images, Metrics } from "../Themes/";
 import styles from "./Styles/ResultScreenStyle";
@@ -20,8 +21,21 @@ const fadeIn = {
 class ResultScreen extends Component {
   constructor(props) {
     super(props);
+    const {navigation} = this.props
+    const { state : {params}} = navigation
+    let _type = 0;
+    if( params.isError ) {
+      _type = 2;
+    } else {
+      if( params.tipResult.percent > 0 ) {
+        _type = 0
+      } else {
+        _type = 1
+      }
+    }
     this.state = {
-      iType: 0,
+      tipResult: params.tipResult,
+      iType: _type,
       starCount: 3
     };
   }
@@ -31,6 +45,8 @@ class ResultScreen extends Component {
   }
 
   render() {
+    const { tipResult } = this.state;
+
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.mainPaddingContainer}>
@@ -41,9 +57,9 @@ class ResultScreen extends Component {
                 imgB={Images.img_light_pink}
               />
               <View style={styles.resultContainer}>
-                <Text style={styles.textSuccess}>5% tip of $1 was Added.</Text>
+                <Text style={styles.textSuccess}>{tipResult.percent}% tip of {currencyFormat(tipResult.original_cost)} was Added.</Text>
                 <Text style={styles.textSuccess}>
-                  Your card would be charged $2.01
+                  Your card would be charged {currencyFormat(tipResult.total)}
                 </Text>
                 <Animatable.Text
                   style={styles.textResultSuccess}
@@ -81,7 +97,7 @@ class ResultScreen extends Component {
               />
               <View style={styles.resultContainer}>
                 <Text style={styles.textSuccess}>
-                  Your card would be charged $2.01
+                  Your card would be charged {currencyFormat(tipResult.total)}
                 </Text>
                 <Animatable.Text
                   style={styles.textResultSuccess}
