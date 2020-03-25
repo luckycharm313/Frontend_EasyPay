@@ -13,7 +13,7 @@ import { ReceiptTypes } from '../Redux/ReceiptRedux'
 /* ------------- Sagas ------------- */
 
 import { startup, isLogin } from './StartupSagas'
-import { sendPhoneRequest, verifiedPhone, addUserInfo } from './UserSagas'
+import { sendPhoneRequest, verifiedPhone, addUserInfo, getUserInfo, setRate } from './UserSagas'
 import { getReceipt, payReceipt } from './ReceiptSagas'
 
 /* ------------- API ------------- */
@@ -33,6 +33,8 @@ export default function * root () {
     takeLatest(UserTypes.SEND_PHONE_REQUEST, sendPhoneRequest, api),
     takeLatest(UserTypes.VERIFIED_PHONE, verifiedPhone, api),
     takeLatest(UserTypes.ADD_USER_INFO, addUserInfo, api),
+    takeLatest(UserTypes.GET_USER_INFO, getUserInfo, api),
+    takeLatest(UserTypes.SET_RATE, setRate, api),
 
     takeLatest(ReceiptTypes.GET_RECEIPT, getReceipt, api),
     takeLatest(ReceiptTypes.PAY_RECEIPT, payReceipt, api),

@@ -6,7 +6,8 @@ import * as Animatable from "react-native-animatable";
 import StarRating from 'react-native-star-rating'
 
 import RainAnimation from "../Components/RainAnimation";
-import { currencyFormat } from '../Services/Constant'
+import { currencyFormat } from '../Services/Constant';
+import UserAction from '../Redux/UserRedux'
 // Styles
 import { Images, Metrics } from "../Themes/";
 import styles from "./Styles/ResultScreenStyle";
@@ -39,9 +40,28 @@ class ResultScreen extends Component {
       starCount: 3
     };
   }
+  
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.isLoad !== this.props.isLoad && nextProps.isLoad === true){
+      this.setState({ starCount: nextProps.info.rate })
+    }
+  }
+
+  componentDidMount() {
+    this.props.getUserInfo();
+  }
 
   onGoHomeHandle = () => {
     this.props.navigation.navigate('HomeScreen')
+  }
+
+  setCount = ( starCount ) => {
+    this.setState({ starCount }, () => {
+      var params = {
+        rate: starCount
+      }
+      this.props.setRate( params )
+    })
   }
 
   render() {
@@ -61,12 +81,9 @@ class ResultScreen extends Component {
                 <Text style={styles.textSuccess}>
                   Your card would be charged {currencyFormat(tipResult.total)}
                 </Text>
-                <Animatable.Text
-                  style={styles.textResultSuccess}
-                  animation={fadeIn}
-                >
+                <Text style={styles.textResultSuccess}>
                   THANK YOU, your payment and tip was successful
-                </Animatable.Text>
+                </Text>
                 <View style={styles.rateContainer}>
                   <Text style={styles.textResultSuccess}>
                     Rate Your Experience 
@@ -82,7 +99,7 @@ class ResultScreen extends Component {
                     halfStar={'ios-star-half'}
                     iconSet={'Ionicons'}
                     starSize = {40}
-                    selectedStar={(starCount) => this.setState({starCount})}
+                    selectedStar={(starCount) => this.setCount(starCount) }
                     containerStyle={{ justifyContent: 'space-evenly' }}
                     buttonStyle={{ marginTop: Metrics.mainVertical }}
                   />
@@ -130,12 +147,18 @@ class ResultScreen extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {};
+const mapStateToProps = ({ user }) => {
+  return {
+    info: user.info,
+    isLoad: user.isLoad
+  };
 };
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    getUserInfo: () => dispatch(UserAction.getUserInfo()),
+    setRate: (params) => dispatch(UserAction.setRate(params)),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ResultScreen);

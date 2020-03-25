@@ -71,3 +71,39 @@ export function * addUserInfo (api, action) {
     Toast.show('Request failed.');
   }
 }
+
+export function * getUserInfo (api, action) {
+
+  const token = JSON.parse(yield AsyncStorage.getItem(TOKEN))
+  const response = yield call(api.getUserInfo, token);
+  // success?
+  console.log(response)
+  if (response.ok) {
+    const temp = path(['data'], response);
+    if (temp.code === 200) {
+      yield put(UserActions.getSuccess(temp.payload));
+    } else {
+      Toast.show(temp.message);
+    }
+  } else {
+    Toast.show('Request failed.');
+  }
+}
+
+export function * setRate (api, action) {
+  const { params } = action
+  const token = JSON.parse(yield AsyncStorage.getItem(TOKEN))
+  const response = yield call(api.setRate, token, params);
+  // success?
+  console.log(response)
+  if (response.ok) {
+    const temp = path(['data'], response);
+    if (temp.code === 200) {
+      yield put(UserActions.getSuccess(temp.payload));
+    } else {
+      Toast.show(temp.message);
+    }
+  } else {
+    Toast.show('Request failed.');
+  }
+}

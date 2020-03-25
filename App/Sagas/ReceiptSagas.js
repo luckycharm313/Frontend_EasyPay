@@ -38,7 +38,7 @@ export function * payReceipt (api, action) {
     if (temp.code === 200) {
       yield put(NavigationActions.navigate({ routeName: 'ResultScreen', params: { tipResult: temp.payload, isError: false }} ));
     } else if( temp.code === 400 ) {
-      // yield put(NavigationActions.navigate({ routeName: 'ResultScreen', params: { isError: true }} ));      
+      yield put(NavigationActions.navigate({ routeName: 'ResultScreen', params: { isError: true }} ));      
     } else {
       Toast.show(temp.message);
     }

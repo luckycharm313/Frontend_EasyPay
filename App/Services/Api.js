@@ -18,6 +18,8 @@ const create = (baseURL = 'http://localhost:5000/api/') => {
   const sendPhoneRequest = (params) => api.post(`user/phone`, params )
   const verifiedPhone = (params) => api.post(`user/verify`, params )
   const addUserInfo = (params) => api.post(`user/add`, params )
+  const getUserInfo = (token) => api.get(`user/get`, null, { headers : {'token': token}} )
+  const setRate = (token, params) => api.post(`user/setRate`, params, { headers : {'token': token}} )
   const getReceipt = (token, params) => api.post(`receipt/get`, params, { headers : {'token': token}} )
   const payReceipt = (token, params) => api.post(`receipt/pay`, params, { headers : {'token': token}} )
 
@@ -25,8 +27,10 @@ const create = (baseURL = 'http://localhost:5000/api/') => {
     sendPhoneRequest,
     verifiedPhone,
     addUserInfo,
+    getUserInfo,
+    setRate,
     getReceipt,
-    payReceipt
+    payReceipt,
   }
 }
 
