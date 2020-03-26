@@ -14,7 +14,7 @@ import { ReceiptTypes } from '../Redux/ReceiptRedux'
 
 import { startup, isLogin } from './StartupSagas'
 import { sendPhoneRequest, verifiedPhone, addUserInfo, getUserInfo, setRate } from './UserSagas'
-import { getReceipt, payReceipt } from './ReceiptSagas'
+import { getReceipt, payReceipt, loadHistory } from './ReceiptSagas'
 
 /* ------------- API ------------- */
 
@@ -38,5 +38,6 @@ export default function * root () {
 
     takeLatest(ReceiptTypes.GET_RECEIPT, getReceipt, api),
     takeLatest(ReceiptTypes.PAY_RECEIPT, payReceipt, api),
+    takeLatest(ReceiptTypes.LOAD_HISTORY, loadHistory, api),
   ])
 }

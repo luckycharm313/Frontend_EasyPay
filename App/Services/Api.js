@@ -22,6 +22,7 @@ const create = (baseURL = 'http://localhost:5000/api/') => {
   const setRate = (token, params) => api.post(`user/setRate`, params, { headers : {'token': token}} )
   const getReceipt = (token, params) => api.post(`receipt/get`, params, { headers : {'token': token}} )
   const payReceipt = (token, params) => api.post(`receipt/pay`, params, { headers : {'token': token}} )
+  const loadHistory = (token, params) => api.post(`receipt/load`, params, { headers : {'token': token}} )
 
   return {
     sendPhoneRequest,
@@ -31,6 +32,7 @@ const create = (baseURL = 'http://localhost:5000/api/') => {
     setRate,
     getReceipt,
     payReceipt,
+    loadHistory,
   }
 }
 

@@ -2,23 +2,30 @@ import React, { Component } from 'react'
 import { SafeAreaView, Text, View, FlatList } from "react-native";
 import { connect } from 'react-redux'
 import { Button } from 'react-native-elements'
+import moment from 'moment'
 import SplashScreen from 'react-native-splash-screen'
 
 import Header from '../Components/Header'
+import ReceiptAction from '../Redux/ReceiptRedux'
 // Styles
 import styles from './Styles/HomeScreenStyle'
 
 class HomeScreen extends Component {
 
   componentDidMount() {
-    setTimeout(() => SplashScreen.hide(), 1000)
+    setTimeout(() => SplashScreen.hide(), 1000);
+    var params = {
+      limit: 20
+    }
+    this.props.loadHistory(params);
   }
 
-  renderItem = (e) => {
+  renderItem = ({ item }) => {
+    var _date = moment.unix(item.paid_date).format('MMM DD YYYY')
     return (
       <View style={styles.transactionItem}>
-        <Text style={styles.transactionLeft}>Feb 02 2020</Text>
-        <Text style={styles.transactionRight}>Paid Angie’s burger</Text>
+        <Text style={styles.transactionLeft}>{_date}</Text>
+        <Text style={styles.transactionRight}>Paid {item.biz_name}</Text>
       </View>
     )
   }
@@ -26,6 +33,7 @@ class HomeScreen extends Component {
   onTapHandle = () => {
     this.props.navigation.navigate('ScanScreen')
   }
+  
   render () {
     return (
       <SafeAreaView style={styles.container}>
@@ -35,7 +43,7 @@ class HomeScreen extends Component {
             <FlatList
               style={styles.transactionContainer}
               showsVerticalScrollIndicator={false}
-              data={[1,2,3,1,1,1,52,2,2,2,2]}
+              data={this.props.receiptList}
               keyExtractor={(item, index) => index.toString()}
               renderItem={this.renderItem}
             />
@@ -55,13 +63,15 @@ class HomeScreen extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ receipt }) => {
   return {
+    receiptList: receipt.receiptList
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    loadHistory: (params) => dispatch(ReceiptAction.loadHistory(params)),
   }
 }
 

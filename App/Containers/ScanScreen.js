@@ -12,6 +12,7 @@ import Dash from 'react-native-dash'
 import { Button } from 'react-native-elements'
 import QRCodeScanner from 'react-native-qrcode-scanner'
 import {check, openSettings, PERMISSIONS, RESULTS} from 'react-native-permissions'
+import Toast from 'react-native-simple-toast'
 import Header from '../Components/Header'
 import ReceiptAction from '../Redux/ReceiptRedux';
 import { currencyFormat } from '../Services/Constant'
@@ -74,10 +75,14 @@ class ScanScreen extends Component {
   }
 
   onScanHandle = () => {
-      this.setState({isScan: true, isPay: false})
+    this.setState({isScan: true, isPay: false})
   }
   onPayHandle = () => {
     this.setState({isScan: false, isPay: false})
+    let receipt = this.props.receiptInfo.receipt;
+    let sub_receipts = this.props.receiptInfo.sub_receipts;
+    if(receipt.status === 1 || (Object.keys(sub_receipts).length > 0 && sub_receipts.status === 1))
+      return Toast.show('This receipt was already paid.');
     this.props.navigation.navigate('TipScreen', { receiptInfo: this.props.receiptInfo })
   }
 
@@ -149,6 +154,10 @@ class ScanScreen extends Component {
         {/* <Text style={styles.textAddressName}>Denver, CO 80204</Text> */}
         <Dash style={{ width: '100%', height:1, marginVertical: 15 }}/>
         {
+          (receipt.status === 1 || (Object.keys(sub_receipts).length > 0 && sub_receipts.status === 1)) &&
+            <Text style={[styles.splitText, { color: Colors.error }]}>PAID</Text>
+        }
+        {
           Object.keys(this.props.receiptInfo.sub_receipts).length > 0 &&
             <Text style={styles.splitText}>SPLIT CHECK</Text>
         }
@@ -165,7 +174,6 @@ class ScanScreen extends Component {
 
   render() {  
     const { isPay, isScan } = this.state
-    console.log(this.props.receiptInfo)
     return (
       <SafeAreaView style={styles.container}>
         <Header leftButton="setting" navigation={this.props.navigation}/>

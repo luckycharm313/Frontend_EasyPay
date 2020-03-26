@@ -46,3 +46,22 @@ export function * payReceipt (api, action) {
     Toast.show('Request failed.');
   }
 }
+
+export function * loadHistory (api, action) {
+  const { params } = action
+  const token = JSON.parse(yield AsyncStorage.getItem(TOKEN))
+  
+  const response = yield call(api.loadHistory, token, params);
+  console.log({response})
+  // success?
+  if (response.ok) {
+    const temp = path(['data'], response);
+    if (temp.code === 200) {
+      yield put(ReceiptActions.getListSuccess(temp.payload));
+    } else {
+      Toast.show(temp.message);
+    }
+  } else {
+    Toast.show('Request failed.');
+  }
+}

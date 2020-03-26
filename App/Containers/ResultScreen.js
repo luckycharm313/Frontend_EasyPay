@@ -42,7 +42,7 @@ class ResultScreen extends Component {
   }
   
   componentWillReceiveProps(nextProps) {
-    if(nextProps.isLoad !== this.props.isLoad && nextProps.isLoad === true){
+    if(nextProps.isLoad !== this.props.isLoad && nextProps.isLoad === false){
       this.setState({ starCount: nextProps.info.rate })
     }
   }
