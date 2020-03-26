@@ -26,10 +26,10 @@ export default StyleSheet.create({
   },
   field: {
     color: '#449aeb',
-    borderColor: '#000000',
+    borderColor: Colors.white,
     borderWidth: 1,
     borderRadius: 5,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Colors.white,
     overflow: 'hidden',
   }
 })

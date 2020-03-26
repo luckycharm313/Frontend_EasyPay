@@ -72,6 +72,25 @@ export function * addUserInfo (api, action) {
   }
 }
 
+export function * addOneUser (api, action) {
+  const { params } = action
+
+  const response = yield call(api.addOneUser, params);
+
+  // success?
+  console.log(response)
+  if (response.ok) {
+    const temp = path(['data'], response);
+    if (temp.code === 200) {
+      yield put(NavigationActions.navigate({ routeName: 'OneScanScreen', params: { user_id: temp.payload }}));
+    } else {
+      Toast.show(temp.message);
+    }
+  } else {
+    Toast.show('Request failed.');
+  }
+}
+
 export function * getUserInfo (api, action) {
 
   const token = JSON.parse(yield AsyncStorage.getItem(TOKEN))

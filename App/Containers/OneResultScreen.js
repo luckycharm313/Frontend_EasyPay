@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 import { SafeAreaView, Text, View } from "react-native";
 import { connect } from "react-redux";
 import { Button } from "react-native-elements";
 import * as Animatable from "react-native-animatable";
-import StarRating from 'react-native-star-rating'
 
 import RainAnimation from "../Components/RainAnimation";
 import { currencyFormat } from '../Services/Constant';
@@ -19,7 +18,8 @@ const fadeIn = {
     opacity: 1
   }
 };
-class ResultScreen extends Component {
+
+class OneResultScreen extends Component {
   constructor(props) {
     super(props);
     const {navigation} = this.props
@@ -47,22 +47,8 @@ class ResultScreen extends Component {
     }
   }
 
-  componentDidMount() {
-    if(this.state.iType < 2)
-      this.props.getUserInfo();
-  }
-
   onGoHomeHandle = () => {
-    this.props.navigation.navigate('HomeScreen')
-  }
-
-  setCount = ( starCount ) => {
-    this.setState({ starCount }, () => {
-      var params = {
-        rate: starCount
-      }
-      this.props.setRate( params )
-    })
+    this.props.navigation.navigate('LaunchScreen')
   }
 
   render() {
@@ -84,27 +70,7 @@ class ResultScreen extends Component {
                 </Text>
                 <Text style={styles.textResultSuccess}>
                   THANK YOU, your payment and tip was successful
-                </Text>
-                <View style={styles.rateContainer}>
-                  <Text style={styles.textResultSuccess}>
-                    Rate Your Experience 
-                  </Text>
-                  <StarRating
-                    disabled={false}
-                    maxStars={5}
-                    rating={this.state.starCount}
-                    fullStarColor='#FFDF00'
-                    emptyStarColor='#FFDF00'
-                    emptyStar={'ios-star-outline'}
-                    fullStar={'ios-star'}
-                    halfStar={'ios-star-half'}
-                    iconSet={'Ionicons'}
-                    starSize = {40}
-                    selectedStar={(starCount) => this.setCount(starCount) }
-                    containerStyle={{ justifyContent: 'space-evenly' }}
-                    buttonStyle={{ marginTop: Metrics.mainVertical }}
-                  />
-                </View>
+                </Text>                
               </View>
             </View>
           ) : this.state.iType === 1 ? ( // just payment
@@ -148,18 +114,14 @@ class ResultScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ user }) => {
+const mapStateToProps = (state) => {
   return {
-    info: user.info,
-    isLoad: user.isLoad
-  };
-};
+  }
+}
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    getUserInfo: () => dispatch(UserAction.getUserInfo()),
-    setRate: (params) => dispatch(UserAction.setRate(params)),
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(ResultScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(OneResultScreen)

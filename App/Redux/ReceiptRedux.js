@@ -9,6 +9,9 @@ const { Types, Creators } = createActions({
   payReceipt: ['params'],
   loadHistory: ['params'],
   getListSuccess: ['receiptList'],
+
+  //one time payment
+  payOneReceipt: ['params'],
 })
 
 export const ReceiptTypes = Types
@@ -47,4 +50,7 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.PAY_RECEIPT]: request,
   [Types.LOAD_HISTORY]: loadHistory,
   [Types.GET_LIST_SUCCESS]: getListSuccess,
+
+  //one time payment
+  [Types.PAY_ONE_RECEIPT]: request,
 })

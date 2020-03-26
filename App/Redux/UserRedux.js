@@ -10,6 +10,9 @@ const { Types, Creators } = createActions({
   getUserInfo: null,
   getSuccess: ['info'],
   setRate: ['params'],
+
+  //one time payment
+  addOneUser: ['params'],
 })
 
 export const UserTypes = Types
@@ -45,4 +48,5 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.GET_USER_INFO]: request,
   [Types.GET_SUCCESS]: getSuccess,
   [Types.SET_RATE]: request,
+  [Types.ADD_ONE_USER]: request,
 })

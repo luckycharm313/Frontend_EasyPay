@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, TouchableOpacity, AsyncStorage } from 'react-native'
 import {NavigationActions, DrawerActions} from 'react-navigation'
 
 // Styles
@@ -22,6 +22,11 @@ class DrawerScreen extends Component {
     });
     this.props.navigation.dispatch(navigateAction);
     this.props.navigation.dispatch(DrawerActions.closeDrawer())
+  }
+
+  onLogOutHandle = async () => {
+    await AsyncStorage.clear();
+    this.props.navigation.navigate('LaunchScreen');
   }
 
   render () {
@@ -47,7 +52,7 @@ class DrawerScreen extends Component {
             <Text style={ styles.textTitle }>History</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={ styles.itemContainer } onPress={() => console.log('')}>
+        <TouchableOpacity style={ styles.itemContainer } onPress={this.onLogOutHandle}>
           <View style={[ styles.item ]}>
             <Text style={ styles.textTitle }>Log Out</Text>
           </View>

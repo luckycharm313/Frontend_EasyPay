@@ -9,8 +9,8 @@ import StartupActions from '../Redux/StartupRedux'
 
 export function * getReceipt (api, action) {
   const { params } = action
-  const token = JSON.parse(yield AsyncStorage.getItem(TOKEN))
-  const response = yield call(api.getReceipt, token, params);
+  
+  const response = yield call(api.getReceipt, params);
   console.log({response})
   // success?
   if (response.ok) {
@@ -39,6 +39,28 @@ export function * payReceipt (api, action) {
       yield put(NavigationActions.navigate({ routeName: 'ResultScreen', params: { tipResult: temp.payload, isError: false }} ));
     } else if( temp.code === 400 ) {
       yield put(NavigationActions.navigate({ routeName: 'ResultScreen', params: { isError: true }} ));      
+    } else {
+      Toast.show(temp.message);
+    }
+  } else {
+    Toast.show('Request failed.');
+  }
+}
+
+export function * payOneReceipt (api, action) {
+  const { params } = action
+  
+  yield put(StartupActions.loadProgress(true));
+  const response = yield call(api.payOneReceipt, params);
+  yield put(StartupActions.loadProgress(false));
+  console.log({response})
+  // success?
+  if (response.ok) {
+    const temp = path(['data'], response);
+    if (temp.code === 200) {
+      yield put(NavigationActions.navigate({ routeName: 'OneResultScreen', params: { tipResult: temp.payload, isError: false }} ));
+    } else if( temp.code === 400 ) {
+      yield put(NavigationActions.navigate({ routeName: 'OneResultScreen', params: { isError: true }} ));      
     } else {
       Toast.show(temp.message);
     }

@@ -9,4 +9,12 @@ export default StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center'
   },
+  field: {
+    color: '#449aeb',
+    borderColor: Colors.white,
+    borderWidth: 1,
+    borderRadius: 5,
+    backgroundColor: Colors.white,
+    overflow: 'hidden',
+  }
 })

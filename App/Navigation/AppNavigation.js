@@ -15,6 +15,10 @@ import HomeScreen from '../Containers/HomeScreen'
 import DrawerScreen from '../Containers/DrawerScreen'
 import PaymentMethodScreen from '../Containers/PaymentMethodScreen'
 import CardScreen from '../Containers/CardScreen'
+//one time payment
+import OneScanScreen from '../Containers/OneScanScreen'
+import OneTipScreen from '../Containers/OneTipScreen'
+import OneResultScreen from '../Containers/OneResultScreen'
 
 import { Metrics } from "../Themes/";
 
@@ -25,13 +29,7 @@ const Drawer = createDrawerNavigator(
       navigationOptions: {
         title: "Home"
       }
-    },
-    ScanScreen: { 
-      screen: ScanScreen,
-      navigationOptions: {
-        title: "Scan"
-      }
-    }        
+    }    
   },
   {
     contentComponent: DrawerScreen,
@@ -48,18 +46,15 @@ const PrimaryNav = createStackNavigator(
     SignupScreen: { screen: SignupScreen },
     PaymentMethodScreen: { screen: PaymentMethodScreen },
     CardScreen: { screen: CardScreen },
-    TipScreen: { 
-      screen: TipScreen,
-      navigationOptions: {
-        title: "Tip"
-      }
-    },
-    ResultScreen: {
-      screen: ResultScreen,
-      navigationOptions: {
-        title: "Result"
-      }
-    },
+    TipScreen: { screen: TipScreen },
+    ResultScreen: { screen: ResultScreen },
+    ScanScreen: { screen: ScanScreen },
+    
+    //one time payment
+    OneScanScreen: { screen: OneScanScreen },
+    OneTipScreen: { screen: OneTipScreen },
+    OneResultScreen: { screen: OneResultScreen },
+
     Drawer: {
       screen: Drawer,
       navigationOptions: {

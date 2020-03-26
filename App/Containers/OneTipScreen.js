@@ -7,28 +7,30 @@ import Header from "../Components/Header";
 import ReceiptAction from '../Redux/ReceiptRedux'
 // Styles
 import { Images, Colors } from '../Themes/'
+
 import styles from './Styles/TipScreenStyle'
 
-class TipScreen extends Component {
-  
+class OneTipScreen extends Component {
+
   constructor(props) {
     super(props);
     const {navigation} = this.props
     const { state : {params}} = navigation
     this.state = {
       receiptInfo: params.receiptInfo,
+      user_id: params.user_id,
       tip: 0
     }
   }
 
   onSkipHandle = () => {
-    // this.props.navigation.navigate('ResultScreen', { receiptInfo: this.state.receiptInfo, tip: 0 })
     var params = {
+      user_id: this.state.user_id,
       receiptInfo : this.state.receiptInfo,
       percent: 0,
       tip: 0
     }
-    this.props.payReceipt(params)
+    this.props.payOneReceipt(params)
   }
 
   onTipHandle = () => {
@@ -36,12 +38,12 @@ class TipScreen extends Component {
 
     let _tip = parseInt(this.state.tip) * parseFloat(Object.keys(this.state.receiptInfo.sub_receipts).length > 0 ? this.state.receiptInfo.sub_receipts.cost : this.state.receiptInfo.receipt.total ) / 100;
     var params = {
+      user_id: this.state.user_id,
       receiptInfo : this.state.receiptInfo,
       tip: _tip,
       percent: this.state.tip
     }
-    this.props.payReceipt(params)
-    // this.props.navigation.navigate('ResultScreen', { receiptInfo: this.state.receiptInfo, tip: _tip })
+    this.props.payOneReceipt(params)
   }
 
   onSelectTipHandle = (e) => {
@@ -141,8 +143,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    payReceipt: (params) => dispatch(ReceiptAction.payReceipt(params)),
+    payOneReceipt: (params) => dispatch(ReceiptAction.payOneReceipt(params)),
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TipScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(OneTipScreen)
