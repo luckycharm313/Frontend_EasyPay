@@ -128,7 +128,7 @@ class OneScanScreen extends Component {
         </View>
         <View style={styles.orderItem}>
           <Text style={styles.totalLeft}>Tax</Text>
-          <Text style={styles.totalRight}>{currencyFormat(data.tax)}</Text>
+          <Text style={styles.totalRight}>{ data.tax }</Text>
         </View>
         <View style={styles.orderItem}>
           <Text style={[styles.totalLeft, { fontWeight: '800' }]}>Total</Text>

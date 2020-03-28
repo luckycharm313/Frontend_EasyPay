@@ -82,7 +82,7 @@ class ScanScreen extends Component {
     let receipt = this.props.receiptInfo.receipt;
     let sub_receipts = this.props.receiptInfo.sub_receipts;
     if(receipt.status === 1 || (Object.keys(sub_receipts).length > 0 && sub_receipts.status === 1))
-      return Toast.show('This receipt was already paid.');
+      return Toast.show('There’s nothing to pay, this payment already completed.');
     this.props.navigation.navigate('TipScreen', { receiptInfo: this.props.receiptInfo })
   }
 
@@ -123,7 +123,7 @@ class ScanScreen extends Component {
         </View>
         <View style={styles.orderItem}>
           <Text style={styles.totalLeft}>Tax</Text>
-          <Text style={styles.totalRight}>{currencyFormat(data.tax)}</Text>
+          <Text style={styles.totalRight}>{data.tax}</Text>
         </View>
         <View style={styles.orderItem}>
           <Text style={[styles.totalLeft, { fontWeight: '800' }]}>Total</Text>

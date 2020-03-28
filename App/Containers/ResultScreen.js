@@ -117,12 +117,11 @@ class ResultScreen extends Component {
                 <Text style={styles.textSuccess}>
                   Your card would be charged {currencyFormat(tipResult.total)}
                 </Text>
-                <Animatable.Text
+                <Text
                   style={styles.textResultSuccess}
-                  animation={fadeIn}
                 >
                   THANK YOU, your payment was Successful
-                </Animatable.Text>
+                </Text>
               </View>
             </View>
           ) : (
