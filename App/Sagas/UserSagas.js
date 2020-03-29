@@ -109,6 +109,23 @@ export function * getUserInfo (api, action) {
   }
 }
 
+export function * getOneUserInfo (api, action) {
+  const { params } = action
+  const response = yield call(api.getOneUserInfo, params);
+  // success?
+  console.log(response)
+  if (response.ok) {
+    const temp = path(['data'], response);
+    if (temp.code === 200) {
+      yield put(UserActions.getSuccess(temp.payload));
+    } else {
+      Toast.show(temp.message);
+    }
+  } else {
+    Toast.show('Request failed.');
+  }
+}
+
 export function * setRate (api, action) {
   const { params } = action
   const token = JSON.parse(yield AsyncStorage.getItem(TOKEN))

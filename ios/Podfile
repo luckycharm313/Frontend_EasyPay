@@ -38,7 +38,9 @@ target 'EasyPay' do
   pod 'react-native-simple-toast', :path => '../node_modules/react-native-simple-toast'
 
   pod 'tipsi-stripe', :path => '../node_modules/tipsi-stripe'
-
+  
+  pod 'Braintree', '~> 4.19.0'
+  
   target 'EasyPayTests' do
     inherit! :search_paths
     # Pods for testing

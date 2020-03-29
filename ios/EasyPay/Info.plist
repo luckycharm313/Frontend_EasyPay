@@ -37,6 +37,20 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Your message to user when the camera is accessed for the first time</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This app would like to access your location.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app would like to access your location.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Your message to user when the microsphone is accessed for the first time</string>
+	<key>NSMotionUsageDescription</key>
+	<string>This app would motion</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Your message to user when the photo library is accessed for the first time</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>This app would recognize speech</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
@@ -67,19 +81,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSCameraUsageDescription</key>
-	<string>Your message to user when the camera is accessed for the first time</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>This app would like to access your location.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app would like to access your location.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Your message to user when the microsphone is accessed for the first time</string>
-	<key>NSMotionUsageDescription</key>
-	<string>This app would motion</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Your message to user when the photo library is accessed for the first time</string>
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>This app would recognize speech</string>
 </dict>
 </plist>

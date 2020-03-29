@@ -27,6 +27,7 @@ const create = (baseURL = 'http://localhost:5000/api/') => {
   // one time payment
   const addOneUser = (params) => api.post(`user/addOneUser`, params )
   const payOneReceipt = (params) => api.post(`receipt/payOne`, params )
+  const getOneUserInfo = (params) => api.post(`user/getOne`, params )
 
   return {
     sendPhoneRequest,
@@ -40,7 +41,8 @@ const create = (baseURL = 'http://localhost:5000/api/') => {
     
     // one time payment
     addOneUser,
-    payOneReceipt
+    payOneReceipt,
+    getOneUserInfo
   }
 }
 

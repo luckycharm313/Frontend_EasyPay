@@ -53,6 +53,7 @@
 		61569C8A94D04515B77A8AFC /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B9B90213124B63945EA9B6 /* libSplashScreen.a */; };
 		6AEF89208E184BFB92DF145D /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8413A9F3593A4BCAB9D6F71D /* Entypo.ttf */; };
 		70EF40300E4E453586E30C70 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF7B5EFE69154DD9B11ADCAF /* MaterialCommunityIcons.ttf */; };
+		724D8BC1066A4779AC1FFE27 /* libRNPaypal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A908BF534134C4D82FF3860 /* libRNPaypal.a */; };
 		72D2E705CBC749CCB8D795BD /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D961EB9F98C146E3B083C49A /* libRNGestureHandler.a */; };
 		73EB9841C740470D86392F79 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 394CF199D8C84182B2308888 /* FontAwesome5_Brands.ttf */; };
 		803A465CA2A04D5583BF1D10 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 039823CF8DA0461C8FE2833B /* libRNSVG.a */; };
@@ -283,6 +284,13 @@
 			remoteGlobalIDString = 3D3CD9321DE5FBEE00167DC4;
 			remoteInfo = "cxxreact-tvOS";
 		};
+		50349278242F547900E34CEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0941F49AE2EE4E6299655B20 /* RNPaypal.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNPaypal;
+		};
 		50CBF8C624143D5F00350F98 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -425,6 +433,7 @@
 		01C920F312FE4314AF79313F /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		039823CF8DA0461C8FE2833B /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
 		06DA62673973477EB745D8F2 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		0941F49AE2EE4E6299655B20 /* RNPaypal.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNPaypal.xcodeproj; path = "../node_modules/react-native-paypal/ios/RNPaypal.xcodeproj"; sourceTree = "<group>"; };
 		0EA97B4DF235466D8A932A66 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
@@ -446,6 +455,7 @@
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		379B61AD14144C95B0D17A78 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		394CF199D8C84182B2308888 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		3A908BF534134C4D82FF3860 /* libRNPaypal.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNPaypal.a; sourceTree = "<group>"; };
 		50349206242F42A500E34CEC /* logo_title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_title.png; path = ../App/Images/logo_title.png; sourceTree = "<group>"; };
 		5042476587C02B874437DE40 /* Pods-EasyPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPay.debug.xcconfig"; path = "Target Support Files/Pods-EasyPay/Pods-EasyPay.debug.xcconfig"; sourceTree = "<group>"; };
 		50969D9424182903002F050B /* libPermission-Contacts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPermission-Contacts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -519,6 +529,7 @@
 				803A465CA2A04D5583BF1D10 /* libRNSVG.a in Frameworks */,
 				CE5AF6C9EF64409E9200D189 /* libRNVectorIcons.a in Frameworks */,
 				3DFD7D331681B73FD6A4814A /* libPods-EasyPay.a in Frameworks */,
+				724D8BC1066A4779AC1FFE27 /* libRNPaypal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,6 +714,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		50349275242F547900E34CEC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50349279242F547900E34CEC /* libRNPaypal.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		50CBF8A024143D5F00350F98 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -715,6 +734,7 @@
 				C249AB3DA2034E2681FA991F /* libRNGestureHandler-tvOS.a */,
 				EDFDAB32DD414F958EF6CC71 /* libRNSVG-tvOS.a */,
 				A62B3B4ED4184971A54B1F1F /* libRNVectorIcons-tvOS.a */,
+				3A908BF534134C4D82FF3860 /* libRNPaypal.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -823,6 +843,7 @@
 				01C920F312FE4314AF79313F /* SplashScreen.xcodeproj */,
 				0EA97B4DF235466D8A932A66 /* RNSVG.xcodeproj */,
 				17069A4897894C84A2BE11BB /* RNVectorIcons.xcodeproj */,
+				0941F49AE2EE4E6299655B20 /* RNPaypal.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1047,6 +1068,10 @@
 					ProjectRef = BF5D5B57D7F640B1A40DB207 /* RNGestureHandler.xcodeproj */;
 				},
 				{
+					ProductGroup = 50349275242F547900E34CEC /* Products */;
+					ProjectRef = 0941F49AE2EE4E6299655B20 /* RNPaypal.xcodeproj */;
+				},
+				{
 					ProductGroup = 50CBF8F024143D5F00350F98 /* Products */;
 					ProjectRef = 0EA97B4DF235466D8A932A66 /* RNSVG.xcodeproj */;
 				},
@@ -1264,6 +1289,13 @@
 			fileType = archive.ar;
 			path = libcxxreact.a;
 			remoteRef = 3DAD3EAA1DF850E9000B6D8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		50349279242F547900E34CEC /* libRNPaypal.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNPaypal.a;
+			remoteRef = 50349278242F547900E34CEC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		50CBF8C724143D5F00350F98 /* libjsi.a */ = {
@@ -1503,10 +1535,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-EasyPay/Pods-EasyPay-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Braintree/Braintree-UI-Localization.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Braintree/Braintree-Drop-In-Localization.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Braintree-UI-Localization.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Braintree-Drop-In-Localization.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Stripe.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1661,11 +1697,15 @@
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-paypal/ios",
 				);
 				INFOPLIST_FILE = EasyPayTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1689,11 +1729,15 @@
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-paypal/ios",
 				);
 				INFOPLIST_FILE = EasyPayTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1718,6 +1762,7 @@
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-paypal/ios",
 				);
 				INFOPLIST_FILE = EasyPay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1726,7 +1771,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.easypay.payments;
 				PRODUCT_NAME = EasyPay;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1745,6 +1790,7 @@
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-paypal/ios",
 				);
 				INFOPLIST_FILE = EasyPay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1753,7 +1799,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.easypay.payments;
 				PRODUCT_NAME = EasyPay;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1779,10 +1825,14 @@
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-paypal/ios",
 				);
 				INFOPLIST_FILE = "EasyPay-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1815,10 +1865,14 @@
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-paypal/ios",
 				);
 				INFOPLIST_FILE = "EasyPay-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1850,10 +1904,14 @@
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-paypal/ios",
 				);
 				INFOPLIST_FILE = "EasyPay-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1885,10 +1943,14 @@
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-paypal/ios",
 				);
 				INFOPLIST_FILE = "EasyPay-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",

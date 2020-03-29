@@ -10438,6 +10438,11 @@ react-native-measureme@0.0.2:
   resolved "https://registry.yarnpkg.com/react-native-measureme/-/react-native-measureme-0.0.2.tgz#7f54eeb0813d461ef6c49d921e42e253d649c47a"
   integrity sha512-m7Td7w1pVdIf7a3ejN7K/67AU+TtkZqTt9/ieKamirLRI3fjLToupmOKDtIOU3Y56oKojzTKz1lBbYSPN28HWA==
 
+react-native-paypal@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-paypal/-/react-native-paypal-2.1.0.tgz#0c3a2e7302d7eb7a91317ccf07cc943d2e624554"
+  integrity sha512-FDua28/wR6bougGDzd4vvkS3adMkt1obPnTzdc0S1rMpDyNXmHlzKX6FYr62l1VtEowGnYNbbzqA9h1Cjbm04w==
+
 react-native-permissions@^2.0.2:
   version "2.0.9"
   resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-2.0.9.tgz#5eabdaa952dd099d14e3790af691f49ff2de0895"

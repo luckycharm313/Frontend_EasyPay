@@ -3,7 +3,7 @@ import { SafeAreaView, Text, View, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { connect } from 'react-redux'
 import { Button } from 'react-native-elements'
-
+import Toast from 'react-native-simple-toast'
 // Styles
 import { Colors, Metrics } from '../Themes/'
 import styles from './Styles/PaymentMethodScreenStyle'
@@ -12,7 +12,10 @@ class PaymentMethodScreen extends Component {
   
   onSelectPaymentHandle = (e) => {
     if( e === 'card' ) {
-      this.props.navigation.navigate('CardScreen')
+      this.props.navigation.navigate('CardScreen', {type: 'card'})
+    } else {
+      return Toast.show('Coming soon!');
+      // this.props.navigation.navigate('CardScreen', {type: 'paypal'})
     }
   }
 

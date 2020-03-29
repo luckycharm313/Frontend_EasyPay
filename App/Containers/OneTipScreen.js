@@ -3,8 +3,10 @@ import { SafeAreaView, Text, View, Image } from 'react-native'
 import { connect } from 'react-redux'
 import { Button } from 'react-native-elements'
 import Toast from 'react-native-simple-toast'
+import { requestOneTimePayment } from 'react-native-paypal'
 import Header from "../Components/Header";
 import ReceiptAction from '../Redux/ReceiptRedux'
+import UserAction from '../Redux/UserRedux'
 // Styles
 import { Images, Colors } from '../Themes/'
 
@@ -22,28 +24,62 @@ class OneTipScreen extends Component {
       tip: 0
     }
   }
+  componentDidMount() {
+    this.props.getOneUserInfo({
+      user_id: this.state.user_id
+    });
+  }
 
-  onSkipHandle = () => {
-    var params = {
-      user_id: this.state.user_id,
-      receiptInfo : this.state.receiptInfo,
-      percent: 0,
-      tip: 0
-    }
-    this.props.payOneReceipt(params)
+  onSkipHandle = async () => {
+    if(this.props.info.paypal) {
+      // var token = this.props.info.paypal
+
+      // let receipt = this.state.receiptInfo.receipt;
+      // let sub_receipts = this.state.receiptInfo.sub_receipts;
+      // var amount = 0;
+      
+      // if( Object.keys(sub_receipts).length > 0 ) {
+      //   amount = parseFloat(sub_receipts.cost);
+      // } else {
+      //   amount = parseFloat(receipt.total);
+      // }
+
+      // const result = await requestOneTimePayment(
+      //   token,
+      //   {
+      //     amount: amount,
+      //     currency: 'USD',
+      //     shippingAddressRequired: false,
+      //     userAction: 'commit',
+      //     intent: 'authorize', 
+      //   }
+      // );
+      // console.log(result)
+    } else {
+      var params = {
+        user_id: this.state.user_id,
+        receiptInfo : this.state.receiptInfo,
+        percent: 0,
+        tip: 0
+      }
+      this.props.payOneReceipt(params)
+    }    
   }
 
   onTipHandle = () => {
     if( this.state.tip === 0 ) return Toast.show('Select the tip');
+    if(this.props.info.paypal) {
 
-    let _tip = parseInt(this.state.tip) * parseFloat(Object.keys(this.state.receiptInfo.sub_receipts).length > 0 ? this.state.receiptInfo.sub_receipts.cost : this.state.receiptInfo.receipt.total ) / 100;
-    var params = {
-      user_id: this.state.user_id,
-      receiptInfo : this.state.receiptInfo,
-      tip: _tip,
-      percent: this.state.tip
+    } else {
+      let _tip = parseInt(this.state.tip) * parseFloat(Object.keys(this.state.receiptInfo.sub_receipts).length > 0 ? this.state.receiptInfo.sub_receipts.cost : this.state.receiptInfo.receipt.total ) / 100;
+      var params = {
+        user_id: this.state.user_id,
+        receiptInfo : this.state.receiptInfo,
+        tip: _tip,
+        percent: this.state.tip
+      }
+      this.props.payOneReceipt(params)
     }
-    this.props.payOneReceipt(params)
   }
 
   onSelectTipHandle = (e) => {
@@ -136,13 +172,15 @@ class OneTipScreen extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({user}) => {
   return {
+    info: user.info,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    getOneUserInfo: (params) => dispatch(UserAction.getOneUserInfo(params)),
     payOneReceipt: (params) => dispatch(ReceiptAction.payOneReceipt(params)),
   }
 }

@@ -15,7 +15,10 @@ import styles from './Styles/CardScreenStyle'
 class CardScreen extends Component {
   constructor(props) {
     super(props);
+    const {navigation} = this.props
+    const { state : {params}} = navigation
     this.state = {
+      iType: params.type,
       keyboardHeight: 0,
       email: '',
       zipCode: '',
@@ -56,18 +59,28 @@ class CardScreen extends Component {
   }
 
   onNextHandle = () => {
-    const { email, zipCode, card, valid } = this.state
+    const { email, zipCode, card, valid, iType } = this.state
 
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     if( email === '' || reg.test(email) === false ) return Toast.show('Invalid email')
     if( zipCode === '' ) return Toast.show('Zip Code is empty.')
-    if( !valid ) return Toast.show('Please add a Card.')
-    var params = {
-      email,
-      zip_code: zipCode,
-      card
+    if(iType === 'card') {
+      if( !valid ) return Toast.show('Please add a Card.')
+      var params = {
+        email,
+        zip_code: zipCode,
+        card
+      }
+      this.props.addOneUser(params)
+    } else {
+      var params = {
+        email,
+        zip_code: zipCode,
+        card: null
+      }
+      this.props.addOneUser(params)
     }
-    this.props.addOneUser(params)
+    
   }
 
   handleFieldParamsChange = (valid, card) => {
@@ -83,17 +96,20 @@ class CardScreen extends Component {
         <Header leftButton="back" navigation={this.props.navigation}/>
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
           <View style={[styles.mainPaddingContainer, styles.screenContainer]}>
-            <View style={{ marginBottom: Metrics.mainVertical }}>
-              <PaymentCardTextField
-                accessible={false}
-                style={styles.field}
-                onParamsChange={this.handleFieldParamsChange}
-                numberPlaceholder="XXXX XXXX XXXX XXXX"
-                expirationPlaceholder="MM/YY"
-                cvcPlaceholder="CVC"
-                {...this.testID('cardTextField')}
-              />
-            </View>
+            {
+              this.state.iType === 'card' &&
+                <View style={{ marginBottom: Metrics.mainVertical }}>
+                  <PaymentCardTextField
+                    accessible={false}
+                    style={styles.field}
+                    onParamsChange={this.handleFieldParamsChange}
+                    numberPlaceholder="XXXX XXXX XXXX XXXX"
+                    expirationPlaceholder="MM/YY"
+                    cvcPlaceholder="CVC"
+                    {...this.testID('cardTextField')}
+                  />
+                </View>
+            }            
             <Input
               onChangeText={(email)=>this.setState({email})}
               placeholder='Email'

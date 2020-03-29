@@ -1,5 +1,27 @@
 PODS:
   - boost-for-react-native (1.63.0)
+  - Braintree (4.19.0):
+    - Braintree/Card (= 4.19.0)
+    - Braintree/Core (= 4.19.0)
+    - Braintree/PayPal (= 4.19.0)
+    - Braintree/UI (= 4.19.0)
+  - Braintree/Card (4.19.0):
+    - Braintree/Core
+  - Braintree/Core (4.19.0)
+  - Braintree/PayPal (4.19.0):
+    - Braintree/Core
+    - Braintree/PayPalOneTouch
+  - Braintree/PayPalDataCollector (4.19.0):
+    - Braintree/Core
+    - Braintree/PayPalUtils
+  - Braintree/PayPalOneTouch (4.19.0):
+    - Braintree/Core
+    - Braintree/PayPalDataCollector
+    - Braintree/PayPalUtils
+  - Braintree/PayPalUtils (4.19.0)
+  - Braintree/UI (4.19.0):
+    - Braintree/Card
+    - Braintree/Core
   - DoubleConversion (1.1.5)
   - Folly (2018.10.22.00):
     - boost-for-react-native
@@ -86,6 +108,7 @@ PODS:
   - yoga (0.59.9.React)
 
 DEPENDENCIES:
+  - Braintree (~> 4.19.0)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - Permission-Camera (from `../node_modules/react-native-permissions/ios/Camera.podspec`)
   - react-native-camera (from `../node_modules/react-native-camera`)
@@ -112,6 +135,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - boost-for-react-native
+    - Braintree
     - DoubleConversion
     - glog
     - Stripe
@@ -139,6 +163,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  Braintree: 2982ea66c6ef4a22116a9f52210d54e3a9ae74b7
   DoubleConversion: e22e0762848812a87afd67ffda3998d9ef29170c
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   glog: 1de0bb937dccdc981596d3b5825ebfb765017ded
@@ -153,6 +178,6 @@ SPEC CHECKSUMS:
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: 4c8e02066c8363e6f4ac4d30340a0d47cafc4664
+PODFILE CHECKSUM: c3e412eb9b4aa68b4ad3a54f2d269bdfabdd3dc0
 
 COCOAPODS: 1.8.4
