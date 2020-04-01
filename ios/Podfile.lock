@@ -100,6 +100,12 @@ PODS:
     - React
   - RNPermissions (2.0.9):
     - React
+  - RNSentry (1.3.6):
+    - React
+    - Sentry (~> 4.4.0)
+  - Sentry (4.4.3):
+    - Sentry/Core (= 4.4.3)
+  - Sentry/Core (4.4.3)
   - Stripe (14.0.0)
   - tipsi-stripe (7.5.1):
     - React
@@ -128,6 +134,7 @@ DEPENDENCIES:
   - React/RCTWebSocket (from `../node_modules/react-native`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - RNPermissions (from `../node_modules/react-native-permissions`)
+  - "RNSentry (from `../node_modules/@sentry/react-native`)"
   - Stripe (~> 14.0.0)
   - tipsi-stripe (from `../node_modules/tipsi-stripe`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga/yoga.podspec`)
@@ -138,6 +145,7 @@ SPEC REPOS:
     - Braintree
     - DoubleConversion
     - glog
+    - Sentry
     - Stripe
     - Toast
 
@@ -156,6 +164,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/async-storage"
   RNPermissions:
     :path: "../node_modules/react-native-permissions"
+  RNSentry:
+    :path: "../node_modules/@sentry/react-native"
   tipsi-stripe:
     :path: "../node_modules/tipsi-stripe"
   yoga:
@@ -173,11 +183,13 @@ SPEC CHECKSUMS:
   react-native-simple-toast: 6c376bd79b1e255a4bee90a72ead6447f96ea10d
   RNCAsyncStorage: e0dd7c8a36543b4ef84969acd9f8aceba3a92dc2
   RNPermissions: 2f74237e97b08beda01e914301e12524ddddf5b8
+  RNSentry: d892cbdee165cc6159d71e2a7954efdb8a361918
+  Sentry: 14bdd673870e8cf64932b149fad5bbbf39a9b390
   Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
   tipsi-stripe: 61c247493a58d7e8e0bf6ee6b014271f473d2b11
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: c3e412eb9b4aa68b4ad3a54f2d269bdfabdd3dc0
+PODFILE CHECKSUM: ab0a05c592d4386f979e1c8f0b6782b6c4a5744a
 
 COCOAPODS: 1.8.4

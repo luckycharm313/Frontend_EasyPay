@@ -3,6 +3,7 @@ package com.easypay;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import io.sentry.RNSentryPackage;
 import com.smarkets.paypal.RNPaypalPackage;
 import com.gettipsi.stripe.StripeReactPackage;
 import com.reactnativecommunity.rnpermissions.RNPermissionsPackage;
@@ -33,6 +34,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNSentryPackage(),
             new RNPaypalPackage(),
             new StripeReactPackage(),
             new RNPermissionsPackage(),

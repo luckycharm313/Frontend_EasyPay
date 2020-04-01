@@ -41,6 +41,8 @@ target 'EasyPay' do
   
   pod 'Braintree', '~> 4.19.0'
   
+  pod 'RNSentry', :path => '../node_modules/@sentry/react-native'
+
   target 'EasyPayTests' do
     inherit! :search_paths
     # Pods for testing
