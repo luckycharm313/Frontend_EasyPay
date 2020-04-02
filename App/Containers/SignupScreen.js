@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Button } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Toast from 'react-native-simple-toast'
-import { PaymentCardTextField } from 'tipsi-stripe'
+import { CreditCardInput } from "react-native-credit-card-input";
 import Input from '../Components/Input'
 
 import UserAction from '../Redux/UserRedux'
@@ -75,7 +75,14 @@ class SignupScreen extends Component {
     this.props.addUserInfo(params)
   }
 
-  handleFieldParamsChange = (valid, card) => {
+  _onChange = ( { values, valid } ) => {
+    var temp = values.expiry.toString().split("/")
+    var card = {
+      number: values.number,
+      expMonth: temp[0],
+      expYear: temp[1],
+      cvc: values.cvc
+    }
     this.setState({
       valid,
       card,
@@ -88,16 +95,26 @@ class SignupScreen extends Component {
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
           <View style={[styles.mainPaddingContainer, styles.screenContainer]}>
             <View style={{ marginBottom: Metrics.mainVertical }}>
-              <PaymentCardTextField
-                accessible={false}
-                style={styles.field}
-                onParamsChange={this.handleFieldParamsChange}
-                numberPlaceholder="XXXX XXXX XXXX XXXX"
-                expirationPlaceholder="MM/YY"
-                cvcPlaceholder="CVC"
-                keyboardType="phone-pad"
-                {...this.testID('cardTextField')}
-              />
+              <CreditCardInput
+                autoFocus
+                requiresCVC
+                labelStyle={{ color: Colors.white }}
+                inputStyle={{
+                  borderBottomWidth: 0,
+                  backgroundColor: Colors.white,
+                  borderRadius: Metrics.mainRadius,
+                  paddingHorizontal: Metrics.mainVertical,
+                  fontSize: Fonts.size.regular,
+                  marginTop: 3
+                }}
+                inputContainerStyle={{
+                  marginLeft: 0,
+                  marginRight: 15
+                }}
+                validColor={Colors.black}
+                invalidColor={Colors.error}
+                placeholderColor={Colors.textHintColor}
+                onChange={this._onChange} />
             </View>            
             <Input
               onChangeText={(email)=>this.setState({email})}
