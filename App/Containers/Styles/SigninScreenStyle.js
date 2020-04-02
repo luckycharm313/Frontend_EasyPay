@@ -13,7 +13,14 @@ export default StyleSheet.create({
     fontSize: 21,
     color: Colors.white,
     fontFamily: Fonts.type.bold,
-    marginVertical: 20,
+    marginTop: 20,
+  },
+  smallText: {
+    marginTop: 2,
+    fontSize: 14,
+    color: Colors.white,
+    fontFamily: Fonts.type.bold,
+    marginBottom: 20,
   },
   bottomText: {
     fontSize: 14,

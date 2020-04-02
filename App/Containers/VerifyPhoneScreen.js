@@ -45,6 +45,7 @@ class VerifyPhoneScreen extends Component {
             containerStyle={styles.codeContainer}
             codeInputStyle={styles.codeInput}
             compareWithCode={this.state.code}
+            keyboardType='phone-pad'
             onFulfill={(isValid) => this._onFulfill(isValid)}
           />          
           <TouchableOpacity  onPress={() => this.props.navigation.navigate('SigninScreen')}>

@@ -34,10 +34,11 @@ class SigninScreen extends Component {
         />
         <View style={styles.mainPaddingContainer}>
           <Text style={styles.labelText}>What's your phone number?</Text>
+          <Text style={styles.smallText}>Please include your country code.</Text>
           <Input
             onChangeText={phone => this.setState({ phone })}
             placeholder="Phone number"
-            keyboardType="number-pad"
+            keyboardType="phone-pad"
             value={this.state.phone}
           />
           <Button

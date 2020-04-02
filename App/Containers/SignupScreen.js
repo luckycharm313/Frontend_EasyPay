@@ -95,6 +95,7 @@ class SignupScreen extends Component {
                 numberPlaceholder="XXXX XXXX XXXX XXXX"
                 expirationPlaceholder="MM/YY"
                 cvcPlaceholder="CVC"
+                keyboardType="phone-pad"
                 {...this.testID('cardTextField')}
               />
             </View>            
@@ -105,6 +106,7 @@ class SignupScreen extends Component {
             <Input
               onChangeText={(zipCode)=>this.setState({zipCode})}
               placeholder='Zip Code'
+              keyboardType="phone-pad"
               value={this.state.zipCode} />
             <Text style={styles.policyText}>Adding your Card allows you to quickly make payments. You'll also enjoy Exclusive Discounts and perks! We are bringing back privacy to payment.</Text>
             <Button

@@ -106,6 +106,7 @@ class CardScreen extends Component {
                     numberPlaceholder="XXXX XXXX XXXX XXXX"
                     expirationPlaceholder="MM/YY"
                     cvcPlaceholder="CVC"
+                    keyboardType="phone-pad"
                     {...this.testID('cardTextField')}
                   />
                 </View>
