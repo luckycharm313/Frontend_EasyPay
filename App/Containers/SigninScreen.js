@@ -11,16 +11,21 @@ import styles from "./Styles/SigninScreenStyle";
 class SigninScreen extends Component {
   constructor(props) {
     super(props);
+    const {navigation} = this.props
+    const { state : {params}} = navigation
     this.state = {
+      iType: params.iType,
       phone: ""
     };
   }
 
   onVerifyHandle = () => {
-    let regNumber = /^\d+$/ ;
     const { phone } = this.state
-    if( phone === '' || regNumber.test(phone) === false ) return Toast.show('Phone is not correct. Must be number');
-    var params = { phone }
+    if( phone === '' ) return Toast.show('Phone is empty.');
+    var params = { 
+      phone,
+      iType: this.state.iType
+    }
     this.props.sendPhoneRequest(params)
   };
 

@@ -29,7 +29,10 @@ const Drawer = createDrawerNavigator(
       navigationOptions: {
         title: "Home"
       }
-    }    
+    },
+    TipScreen: { screen: TipScreen },
+    ResultScreen: { screen: ResultScreen },
+    ScanScreen: { screen: ScanScreen },
   },
   {
     contentComponent: DrawerScreen,
@@ -46,9 +49,6 @@ const PrimaryNav = createStackNavigator(
     SignupScreen: { screen: SignupScreen },
     PaymentMethodScreen: { screen: PaymentMethodScreen },
     CardScreen: { screen: CardScreen },
-    TipScreen: { screen: TipScreen },
-    ResultScreen: { screen: ResultScreen },
-    ScanScreen: { screen: ScanScreen },
     
     //one time payment
     OneScanScreen: { screen: OneScanScreen },

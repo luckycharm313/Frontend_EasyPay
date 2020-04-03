@@ -11,7 +11,7 @@ class LaunchScreen extends Component {
 
   componentWillMount() {
     this.props.isLogin();
-    setTimeout(() => SplashScreen.hide(), 1000)
+    setTimeout(() => SplashScreen.hide(), 5000)
   }
 
   onOneTimePaymentHandle = () => {
@@ -19,7 +19,11 @@ class LaunchScreen extends Component {
   }
 
   onSigninHandle = () => {
-    this.props.navigation.navigate('SigninScreen')
+    this.props.navigation.navigate('SigninScreen', { iType: 1 } )
+  }
+
+  onSignupHandle = () => {
+    this.props.navigation.navigate('SigninScreen', { iType: 0 } )
   }
 
   render () {
@@ -52,7 +56,7 @@ class LaunchScreen extends Component {
               titleStyle={styles.buttonTitleStyle}
               buttonStyle={styles.buttonStyle}
               containerStyle={[styles.buttonContainerStyle]}
-              onPress={this.onSigninHandle}
+              onPress={this.onSignupHandle}
             />
           </View>
         </View>        

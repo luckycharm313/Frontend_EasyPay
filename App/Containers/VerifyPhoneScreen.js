@@ -48,7 +48,7 @@ class VerifyPhoneScreen extends Component {
             keyboardType='phone-pad'
             onFulfill={(isValid) => this._onFulfill(isValid)}
           />          
-          <TouchableOpacity  onPress={() => this.props.navigation.navigate('SigninScreen')}>
+          <TouchableOpacity  onPress={() => this.props.navigation.goBack()}>
             <Text style={styles.resendText}>Didn't receive SMS? <Text style={{color: '#FA4F10'}}>Resend Code</Text></Text>
           </TouchableOpacity> 
         </View>

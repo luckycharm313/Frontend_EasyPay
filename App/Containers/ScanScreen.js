@@ -175,12 +175,12 @@ class ScanScreen extends Component {
   render() {  
     const { isPay, isScan } = this.state
     return (
-      <SafeAreaView style={styles.container}>
-        <Header leftButton="setting" navigation={this.props.navigation}/>
+      <View style={{flex: 1,}}>
         { isScan ? (
           <View style={{flex: 1}}>
             <QRCodeScanner
               cameraStyle={{height: '100%'}}
+              showMarker={true}
               onRead={this.onSuccess}
               bottomContent={
                 <View style={styles.btnWrapper}>
@@ -189,43 +189,46 @@ class ScanScreen extends Component {
               }
             />
           </View>
-        ) : (          
-          <View style={[styles.mainPaddingContainer, styles.screenContainer ]}>
-            {
-              isPay ? 
-                <View style={styles.payContainer}>
-                  {
-                    Object.keys(this.props.receiptInfo).length > 0 &&
-                      <FlatList
-                        style={styles.paperContainer}
-                        showsVerticalScrollIndicator={false}
-                        data={this.props.receiptInfo.orders}
-                        keyExtractor={(item, index) => index.toString()}
-                        renderItem={this.renderItem}
-                        ListHeaderComponent={this.renderHeader}
-                        ListFooterComponent={this.renderFooter}
-                      />
-                  }                   
-                  <Button
-                    title='TAP TO PAY'
-                    titleStyle={styles.buttonTitleStyle}
-                    buttonStyle={styles.buttonStyle}
-                    containerStyle={[styles.buttonContainerStyle, {marginTop: 40}]}
-                    onPress={this.onPayHandle}
-                  />
-                </View>
-              :
-              <Button
-                title='SCAN CODE TO PAY'
-                titleStyle={styles.buttonTitleStyle}
-                buttonStyle={[styles.buttonStyle, { backgroundColor: Colors.primaryDark, height: Metrics.screenWidth - 80, borderRadius: 20 }]}
-                containerStyle={[styles.buttonContainerStyle, { marginHorizontal: 20}]}
-                onPress={this.onScanHandle}
-              />
-            }
-          </View>
+        ) : (
+          <SafeAreaView style={styles.container}>
+            <Header leftButton="setting" navigation={this.props.navigation}/>
+            <View style={[styles.mainPaddingContainer, styles.screenContainer ]}>
+              {
+                isPay ? 
+                  <View style={styles.payContainer}>
+                    {
+                      Object.keys(this.props.receiptInfo).length > 0 &&
+                        <FlatList
+                          style={styles.paperContainer}
+                          showsVerticalScrollIndicator={false}
+                          data={this.props.receiptInfo.orders}
+                          keyExtractor={(item, index) => index.toString()}
+                          renderItem={this.renderItem}
+                          ListHeaderComponent={this.renderHeader}
+                          ListFooterComponent={this.renderFooter}
+                        />
+                    }                   
+                    <Button
+                      title='TAP TO PAY'
+                      titleStyle={styles.buttonTitleStyle}
+                      buttonStyle={styles.buttonStyle}
+                      containerStyle={[styles.buttonContainerStyle, {marginTop: 40}]}
+                      onPress={this.onPayHandle}
+                    />
+                  </View>
+                :
+                <Button
+                  title='SCAN QR CODE TO PAY'
+                  titleStyle={styles.buttonTitleStyle}
+                  buttonStyle={[styles.buttonStyle, { backgroundColor: Colors.primaryDark, height: Metrics.screenWidth - 80, borderRadius: 20 }]}
+                  containerStyle={[styles.buttonContainerStyle, { marginHorizontal: 20}]}
+                  onPress={this.onScanHandle}
+                />
+              }
+            </View>
+          </SafeAreaView>
         )}
-      </SafeAreaView>
+      </View>
     );
   }
 }

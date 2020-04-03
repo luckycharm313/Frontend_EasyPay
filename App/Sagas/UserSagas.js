@@ -21,6 +21,9 @@ export function * sendPhoneRequest (api, action) {
     const temp = path(['data'], response);
     if (temp.code === 200) {
       yield put(NavigationActions.navigate({ routeName: 'VerifyPhoneScreen', params: { code : temp.payload.code, phone: temp.payload.phone }} ));
+    } else if (temp.code === 300 || temp.code === 301) {
+      Toast.show(temp.message);
+      yield put(NavigationActions.navigate({ routeName: 'LaunchScreen' }));
     } else {
       Toast.show(temp.message);
     }

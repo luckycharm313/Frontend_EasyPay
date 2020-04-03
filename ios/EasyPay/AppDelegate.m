@@ -11,6 +11,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import "RNPaypal.h"
+#import "RNSplashScreen.h"
 
 @implementation AppDelegate
 
@@ -30,7 +31,7 @@
   [self.window makeKeyAndVisible];
   
   [[RNPaypal sharedInstance] configure];
-  
+  [RNSplashScreen show];
   return YES;
 }
 
