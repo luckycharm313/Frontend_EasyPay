@@ -62,9 +62,9 @@ class SignupScreen extends Component {
     const { email, zipCode, card, phone, valid } = this.state
 
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    if( !valid ) return Toast.show('All card fields are required.')
     if( email === '' || reg.test(email) === false ) return Toast.show('Invalid email')
     if( zipCode === '' ) return Toast.show('Zip Code is empty.')
-    if( !valid ) return Toast.show('Please add a Card.')
     var params = {
       phone,
       email,

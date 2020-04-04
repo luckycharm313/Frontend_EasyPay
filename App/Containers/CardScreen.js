@@ -62,10 +62,10 @@ class CardScreen extends Component {
     const { email, zipCode, card, valid, iType } = this.state
 
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-    if( email === '' || reg.test(email) === false ) return Toast.show('Invalid email')
-    if( zipCode === '' ) return Toast.show('Zip Code is empty.')
     if(iType === 'card') {
-      if( !valid ) return Toast.show('Please add a Card.')
+      if( !valid ) return Toast.show('All card fields are required.')
+      if( email === '' || reg.test(email) === false ) return Toast.show('Invalid email')
+      if( zipCode === '' ) return Toast.show('Zip Code is empty.')
       var params = {
         email,
         zip_code: zipCode,
@@ -73,6 +73,8 @@ class CardScreen extends Component {
       }
       this.props.addOneUser(params)
     } else {
+      if( email === '' || reg.test(email) === false ) return Toast.show('Invalid email')
+      if( zipCode === '' ) return Toast.show('Zip Code is empty.')
       var params = {
         email,
         zip_code: zipCode,
