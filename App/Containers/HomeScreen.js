@@ -13,7 +13,7 @@ import styles from './Styles/HomeScreenStyle'
 class HomeScreen extends Component {
 
   componentDidMount() {
-    setTimeout(() => SplashScreen.hide(), 5000);
+    setTimeout(() => SplashScreen.hide(), 3000);
     var params = {
       limit: 20
     }
@@ -33,6 +33,10 @@ class HomeScreen extends Component {
   onTapHandle = () => {
     this.props.navigation.navigate('ScanScreen')
   }
+
+  onSeletePaymentHandle = () => {
+    this.props.navigation.navigate('PaymentOptionScreen')
+  }
   
   render () {
     return (
@@ -40,21 +44,34 @@ class HomeScreen extends Component {
         <Header leftButton="setting" navigation={this.props.navigation}/>
         <View style={styles.mainPaddingContainer}>
           <View style={styles.listContainer}>
-            <FlatList
-              style={styles.transactionContainer}
-              showsVerticalScrollIndicator={false}
-              data={this.props.receiptList}
-              keyExtractor={(item, index) => index.toString()}
-              renderItem={this.renderItem}
-            />
+            {
+              this.props.receiptList.length > 0 ? 
+                <FlatList
+                  style={styles.transactionContainer}
+                  showsVerticalScrollIndicator={false}
+                  data={this.props.receiptList}
+                  keyExtractor={(item, index) => index.toString()}
+                  renderItem={this.renderItem}
+                />
+              :
+              <Text style={styles.txtNoActivity}>You have no activities yet, start making payments and your recent activities will begin to pop up</Text>
+            }
+            
           </View>
           <View style={styles.bottomContainer}>
             <Button
-              title='Tap To Pay'
+              title='TAP TO PAY'
               titleStyle={styles.buttonTitleStyle}
               buttonStyle={styles.buttonStyle}
               containerStyle={styles.buttonContainerStyle}
               onPress={this.onTapHandle}
+            />
+            <Button
+              title='PAYMENT OPTIONS'
+              titleStyle={styles.buttonTitleStyle}
+              buttonStyle={styles.buttonStyle}
+              containerStyle={styles.buttonContainerStyle}
+              onPress={this.onSeletePaymentHandle}
             />
           </View>          
         </View>

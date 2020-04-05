@@ -5,6 +5,7 @@ import {
   Platform,
   Alert,
   Text,
+  Image,
   FlatList
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -12,12 +13,12 @@ import Dash from 'react-native-dash'
 import { Button } from 'react-native-elements'
 import QRCodeScanner from 'react-native-qrcode-scanner'
 import {check, openSettings, PERMISSIONS, RESULTS} from 'react-native-permissions'
-import Toast from 'react-native-simple-toast'
+import Toast from 'react-native-simple-toast';
 import Header from '../Components/Header'
 import ReceiptAction from '../Redux/ReceiptRedux';
 import { currencyFormat } from '../Services/Constant'
 // Styles
-import { Colors, Metrics } from '../Themes';
+import { Colors, Metrics, Fonts, Images } from '../Themes';
 import styles from './Styles/ScanScreenStyle';
 
 class ScanScreen extends Component {
@@ -88,6 +89,7 @@ class ScanScreen extends Component {
 
   onCancelHandle = () => {
     this.setState({ isScan: false })
+    this.props.navigation.navigate('HomeScreen')
   }
 
   onSuccess = ( e ) => {
@@ -181,6 +183,25 @@ class ScanScreen extends Component {
             <QRCodeScanner
               cameraStyle={{height: '100%'}}
               showMarker={true}
+              customMarker={
+                <View style={styles.rectangleContainer}>
+                  <View style={styles.topOverlay}>                    
+                  </View>
+      
+                  <View style={{ flexDirection: "row" }}>
+                    <View style={styles.leftAndRightOverlay} />      
+                    <View style={styles.rectangle}>
+                      <Image source={Images.icon_qr} style={styles.icon_qr}/>
+                    </View>
+                    <View style={styles.leftAndRightOverlay} />
+                  </View>
+                  <View style={styles.bottomOverlay} >
+                    <Text style={{ fontSize: Fonts.size.middle, color: Colors.white, marginTop: Metrics.mainHorizontal, textAlign: 'center' }}>
+                      Move camera to scan QR code
+                    </Text>
+                  </View>
+                </View>
+              }
               onRead={this.onSuccess}
               bottomContent={
                 <View style={styles.btnWrapper}>

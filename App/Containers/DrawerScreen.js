@@ -33,7 +33,7 @@ class DrawerScreen extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <TouchableOpacity style={styles.itemContainer} onPress={this.navigateToScreen('HomeScreen', 'Home')}>
-          <View style={[styles.item, this.state.isActive == 'Home' && { backgroundColor: Colors.primaryLight}]}>
+          <View style={[styles.item, this.state.isActive == 'Home' /* && { backgroundColor: Colors.primaryLight}*/]}>
             <Text style={ styles.textTitle }>Home</Text>
           </View>
         </TouchableOpacity>
@@ -42,8 +42,8 @@ class DrawerScreen extends Component {
             <Text style={ styles.textTitle }>Profile</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={ styles.itemContainer } onPress={() => console.log('')}>
-          <View style={[ styles.item ]}>
+        <TouchableOpacity style={ styles.itemContainer } onPress={this.navigateToScreen('SupportScreen', 'Support')}>
+          <View style={[ styles.item, this.state.isActive == 'Support' /* && { backgroundColor: Colors.primaryLight} */]}>
             <Text style={ styles.textTitle }>Support</Text>
           </View>
         </TouchableOpacity>

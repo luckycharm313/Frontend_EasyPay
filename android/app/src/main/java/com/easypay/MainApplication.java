@@ -5,7 +5,6 @@ import android.app.Application;
 import com.facebook.react.ReactApplication;
 import io.sentry.RNSentryPackage;
 import com.smarkets.paypal.RNPaypalPackage;
-import com.gettipsi.stripe.StripeReactPackage;
 import com.reactnativecommunity.rnpermissions.RNPermissionsPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import org.reactnative.camera.RNCameraPackage;
@@ -36,7 +35,6 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new RNSentryPackage(),
             new RNPaypalPackage(),
-            new StripeReactPackage(),
             new RNPermissionsPackage(),
             new AsyncStoragePackage(),
             new RNCameraPackage(),

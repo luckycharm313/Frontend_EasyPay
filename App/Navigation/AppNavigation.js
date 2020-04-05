@@ -19,6 +19,9 @@ import CardScreen from '../Containers/CardScreen'
 import OneScanScreen from '../Containers/OneScanScreen'
 import OneTipScreen from '../Containers/OneTipScreen'
 import OneResultScreen from '../Containers/OneResultScreen'
+import SupportScreen from '../Containers/SupportScreen'
+import PaymentOptionScreen from '../Containers/PaymentOptionScreen'
+import CardReplaceScreen from '../Containers/CardReplaceScreen'
 
 import { Metrics } from "../Themes/";
 
@@ -33,6 +36,14 @@ const Drawer = createDrawerNavigator(
     TipScreen: { screen: TipScreen },
     ResultScreen: { screen: ResultScreen },
     ScanScreen: { screen: ScanScreen },
+    PaymentOptionScreen: { screen: PaymentOptionScreen },
+    CardReplaceScreen: { screen: CardReplaceScreen },
+    SupportScreen: { 
+      screen: SupportScreen,
+      navigationOptions: {
+        title: "Support"
+      }
+    },
   },
   {
     contentComponent: DrawerScreen,

@@ -40,5 +40,10 @@ export default StyleSheet.create({
   iconSetting: {
     color: Colors.lightWhite,
     fontSize: Fonts.size.h5
+  },
+  logo: {
+    width: 120,
+    height: 30,
+    resizeMode: 'contain',
   }
 });

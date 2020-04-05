@@ -37,7 +37,6 @@ target 'EasyPay' do
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
   pod 'react-native-simple-toast', :path => '../node_modules/react-native-simple-toast'
 
-  pod 'tipsi-stripe', :path => '../node_modules/tipsi-stripe'
   
   pod 'Braintree', '~> 4.19.0'
   

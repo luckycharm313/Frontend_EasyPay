@@ -26,6 +26,12 @@ class Header extends Component {
             <Icon name="reorder" style={styles.iconSetting} />
           </TouchableOpacity>
         )}
+        <TouchableOpacity onPress = {() => this.props.navigation.navigate('HomeScreen')}>
+          <Image source={Images.logo_title} style={styles.logo}/>
+        </TouchableOpacity>
+        <TouchableOpacity style={[ styles.iconLeft, { opacity: 0}]}>
+          <Icon name="reorder" style={styles.iconSetting} />
+        </TouchableOpacity>
       </View>
     );
   }

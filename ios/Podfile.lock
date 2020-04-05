@@ -107,9 +107,6 @@ PODS:
     - Sentry/Core (= 4.4.3)
   - Sentry/Core (4.4.3)
   - Stripe (14.0.0)
-  - tipsi-stripe (7.5.1):
-    - React
-    - Stripe (~> 14.0.0)
   - Toast (4.0.0)
   - yoga (0.59.9.React)
 
@@ -136,7 +133,6 @@ DEPENDENCIES:
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - "RNSentry (from `../node_modules/@sentry/react-native`)"
   - Stripe (~> 14.0.0)
-  - tipsi-stripe (from `../node_modules/tipsi-stripe`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga/yoga.podspec`)
 
 SPEC REPOS:
@@ -166,8 +162,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-permissions"
   RNSentry:
     :path: "../node_modules/@sentry/react-native"
-  tipsi-stripe:
-    :path: "../node_modules/tipsi-stripe"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga/yoga.podspec"
 
@@ -186,10 +180,9 @@ SPEC CHECKSUMS:
   RNSentry: d892cbdee165cc6159d71e2a7954efdb8a361918
   Sentry: 14bdd673870e8cf64932b149fad5bbbf39a9b390
   Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
-  tipsi-stripe: 61c247493a58d7e8e0bf6ee6b014271f473d2b11
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: ab0a05c592d4386f979e1c8f0b6782b6c4a5744a
+PODFILE CHECKSUM: 3a154056903f6bd82824584379e40e55e9f6ccd8
 
 COCOAPODS: 1.8.4

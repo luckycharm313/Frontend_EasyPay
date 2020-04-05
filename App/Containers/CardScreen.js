@@ -116,9 +116,9 @@ class CardScreen extends Component {
                       borderBottomWidth: 0,
                       backgroundColor: Colors.white,
                       borderRadius: Metrics.mainRadius,
-                      paddingHorizontal: Metrics.mainVertical,
-                      fontSize: Fonts.size.regular,
-                      marginTop: 3
+                      paddingHorizontal: 8,
+                      fontSize: Fonts.size.medium,
+                      marginTop: 3,
                     }}
                     inputContainerStyle={{
                       marginLeft: 0,

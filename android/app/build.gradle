@@ -143,7 +143,6 @@ android {
 dependencies {
     implementation project(':@sentry_react-native')
     implementation project(':react-native-paypal')
-    implementation project(':tipsi-stripe')
     implementation project(':react-native-permissions')
     implementation project(':@react-native-community_async-storage')
     implementation project(':react-native-camera')

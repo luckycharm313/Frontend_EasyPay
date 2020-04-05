@@ -2,23 +2,21 @@ import React, { Component } from 'react'
 import { SafeAreaView, View, ScrollView, Keyboard, LayoutAnimation, Text, Platform } from 'react-native'
 import { connect } from 'react-redux'
 import { Button } from 'react-native-elements'
-import Icon from 'react-native-vector-icons/FontAwesome'
+
 import Toast from 'react-native-simple-toast'
 import { CreditCardInput } from "react-native-credit-card-input";
 import Input from '../Components/Input'
-
+import Header from '../Components/Header'
 import UserAction from '../Redux/UserRedux'
-// Styles
-import styles from './Styles/SignupScreenStyle'
-import { Colors, Metrics, Fonts } from '../Themes'
 
-class SignupScreen extends Component {
+// Styles
+import { Colors, Metrics, Fonts } from '../Themes'
+import styles from './Styles/SignupScreenStyle'
+
+class CardReplaceScreen extends Component {
   constructor(props) {
     super(props);
-    const {navigation} = this.props
-    const { state : {params}} = navigation
     this.state = {
-      phone: params.phone,
       keyboardHeight: 0,
       email: '',
       zipCode: '',
@@ -59,20 +57,19 @@ class SignupScreen extends Component {
   }
 
   onNextHandle = async () => {
-    const { email, zipCode, card, phone, valid } = this.state
+    const { email, zipCode, card, valid } = this.state
 
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     if( !valid ) return Toast.show('All card fields are required.')
     if( email === '' || reg.test(email) === false ) return Toast.show('Invalid email')
     if( zipCode === '' ) return Toast.show('Zip Code is empty.')
     var params = {
-      phone,
       email,
       zip_code: zipCode,
       card
     }
     console.log(params)
-    this.props.addUserInfo(params)
+    this.props.updateCardInfo(params)
   }
 
   _onChange = ( { values, valid } ) => {
@@ -92,6 +89,7 @@ class SignupScreen extends Component {
   render () {
     return (
       <SafeAreaView style={styles.container}>
+        <Header leftButton="back" nextScreen='PaymentOptionScreen' navigation={this.props.navigation}/>
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
           <View style={[styles.mainPaddingContainer, styles.screenContainer]}>
             <View style={{ marginBottom: Metrics.mainVertical }}>
@@ -127,7 +125,7 @@ class SignupScreen extends Component {
               value={this.state.zipCode} />
             <Text style={styles.policyText}>Adding your Card allows you to quickly make payments. You'll also enjoy Exclusive Discounts and perks! We are bringing back privacy to payment.</Text>
             <Button
-              title='NEXT'
+              title='DONE'
               titleStyle={styles.buttonTitleStyle}
               buttonStyle={styles.buttonStyle}
               containerStyle={[styles.buttonContainerStyle, { marginTop: 50}]}
@@ -148,8 +146,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addUserInfo: (params) => dispatch(UserAction.addUserInfo(params)),
+    updateCardInfo: (params) => dispatch(UserAction.updateCardInfo(params)),
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignupScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(CardReplaceScreen)

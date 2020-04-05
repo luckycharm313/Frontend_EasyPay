@@ -5,7 +5,8 @@ import {
   Platform,
   Alert,
   Text,
-  FlatList
+  FlatList,
+  Image
 } from 'react-native';
 import { connect } from 'react-redux'
 import Dash from 'react-native-dash'
@@ -17,7 +18,7 @@ import Header from '../Components/Header'
 import ReceiptAction from '../Redux/ReceiptRedux';
 import { currencyFormat } from '../Services/Constant'
 // Styles
-import { Colors, Metrics } from '../Themes';
+import { Colors, Metrics, Fonts, Images } from '../Themes';
 
 import styles from './Styles/ScanScreenStyle'
 
@@ -184,6 +185,26 @@ class OneScanScreen extends Component {
           <View style={{flex: 1}}>
             <QRCodeScanner
               cameraStyle={{height: '100%'}}
+              showMarker={true}
+              customMarker={
+                <View style={styles.rectangleContainer}>
+                  <View style={styles.topOverlay}>                    
+                  </View>
+      
+                  <View style={{ flexDirection: "row" }}>
+                    <View style={styles.leftAndRightOverlay} />      
+                    <View style={styles.rectangle}>
+                      <Image source={Images.icon_qr} style={styles.icon_qr}/>
+                    </View>
+                    <View style={styles.leftAndRightOverlay} />
+                  </View>
+                  <View style={styles.bottomOverlay} >
+                    <Text style={{ fontSize: Fonts.size.middle, color: Colors.white, marginTop: Metrics.mainHorizontal, textAlign: 'center' }}>
+                      Move camera to scan QR code
+                    </Text>
+                  </View>
+                </View>
+              }
               onRead={this.onSuccess}
               bottomContent={
                 <View style={styles.btnWrapper}>

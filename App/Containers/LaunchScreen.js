@@ -11,7 +11,7 @@ class LaunchScreen extends Component {
 
   componentWillMount() {
     this.props.isLogin();
-    setTimeout(() => SplashScreen.hide(), 5000)
+    setTimeout(() => SplashScreen.hide(), 3000)
   }
 
   onOneTimePaymentHandle = () => {

@@ -42,4 +42,11 @@ export default StyleSheet.create({
     color: Colors.black,
     fontWeight: '500'
   },
+  txtNoActivity: {
+    marginTop: Metrics.section.doubleXl,
+    fontSize: Fonts.size.regular,
+    color: Colors.white,
+    fontWeight: '700',
+    textAlign: 'center'
+  }
 })

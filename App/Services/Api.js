@@ -21,6 +21,7 @@ const create = (baseURL = 'http://3.133.99.134:5000/api/') => {
   const addUserInfo = (params) => api.post(`user/add`, params )
   const getUserInfo = (token) => api.get(`user/get`, null, { headers : {'token': token}} )
   const setRate = (token, params) => api.post(`user/setRate`, params, { headers : {'token': token}} )
+  const updateCardInfo = (token, params) => api.post(`user/updateCard`, params, { headers : {'token': token}} )
   const getReceipt = (params) => api.post(`receipt/get`, params)
   const payReceipt = (token, params) => api.post(`receipt/pay`, params, { headers : {'token': token}} )
   const loadHistory = (token, params) => api.post(`receipt/load`, params, { headers : {'token': token}} )
@@ -39,7 +40,8 @@ const create = (baseURL = 'http://3.133.99.134:5000/api/') => {
     getReceipt,
     payReceipt,
     loadHistory,
-    
+    updateCardInfo,
+
     // one time payment
     addOneUser,
     payOneReceipt,
