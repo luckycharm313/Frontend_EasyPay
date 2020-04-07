@@ -74,7 +74,7 @@ class PaymentOptionScreen extends Component {
               </Text>
             </TouchableOpacity>
           </View>
-          <View style={[styles.modalContainer, this.state.isOpenModal ? {display: 'flex'} : '', {bottom: this.state.keyboardHeight}]}>
+          <View style={[styles.modalContainer, this.state.isOpenModal ? {display: 'flex', opacity: 1 } : '', { bottom: this.state.keyboardHeight }]}>
             <TouchableOpacity style={styles.modalItem} onPress={this.onReplaceHandle}>
               <Text style={styles.modalText}>Replace Card</Text>
             </TouchableOpacity>

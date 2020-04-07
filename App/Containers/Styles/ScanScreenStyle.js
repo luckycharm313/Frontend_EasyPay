@@ -4,12 +4,7 @@ import { ApplicationStyles, Metrics, Colors, Fonts } from '../../Themes/'
 const SCREEN_WIDTH = Metrics.screenWidth;
 const overlayColor = "rgba(0,0,0,0.5)"; // this gives us a black color with a 50% transparency
 
-const rectDimensions = Metrics.screenWidth * 0.65; // this is equivalent to 255 from a 393 device width
-const rectBorderWidth = Metrics.screenWidth * 0.005; // this is equivalent to 2 from a 393 device width
-
-const scanBarWidth = Metrics.screenWidth * 0.46; // this is equivalent to 180 from a 393 device width
-const scanBarHeight = Metrics.screenWidth * 0.0025; //this is equivalent to 1 from a 393 device width
-const scanBarColor = "#22ff00";
+const rectDimensions = Metrics.screenWidth * 0.75; // this is equivalent to 255 from a 393 device width
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -116,11 +111,7 @@ export default StyleSheet.create({
   rectangle: {
     height: rectDimensions,
     width: rectDimensions,
-    borderRadius: 30,
-    padding: Metrics.mainVertical,
-    borderWidth: rectBorderWidth,
-    borderColor: Colors.white,
-    backgroundColor: 'rgba(0,0,0,0)'
+    backgroundColor: "transparent"
   },
 
   icon_qr: {
@@ -130,31 +121,18 @@ export default StyleSheet.create({
   },
   topOverlay: {
     flex: 1,
-    height: SCREEN_WIDTH,
     width: SCREEN_WIDTH,
     backgroundColor: overlayColor,
-    justifyContent: "center",
-    alignItems: "center"
   },
 
   bottomOverlay: {
     flex: 1,
-    height: SCREEN_WIDTH,
     width: SCREEN_WIDTH,
     backgroundColor: overlayColor,
-    paddingBottom: SCREEN_WIDTH * 0.25
   },
 
   leftAndRightOverlay: {
-    height: SCREEN_WIDTH * 0.65,
-    width: SCREEN_WIDTH,
-    // borderTopRightRadius: -30,
+    flex: 1,
     backgroundColor: overlayColor
   },
-
-  scanBar: {
-    width: scanBarWidth,
-    height: scanBarHeight,
-    backgroundColor: scanBarColor
-  }
 })

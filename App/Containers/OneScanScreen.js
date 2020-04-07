@@ -13,8 +13,9 @@ import Dash from 'react-native-dash'
 import { Button } from 'react-native-elements'
 import QRCodeScanner from 'react-native-qrcode-scanner'
 import {check, openSettings, PERMISSIONS, RESULTS} from 'react-native-permissions'
-import Toast from 'react-native-simple-toast'
-import Header from '../Components/Header'
+import Toast from 'react-native-simple-toast';
+import { Svg, Defs, Rect, Mask } from 'react-native-svg';
+import Header from '../Components/Header';
 import ReceiptAction from '../Redux/ReceiptRedux';
 import { currencyFormat } from '../Services/Constant'
 // Styles
@@ -28,8 +29,7 @@ class OneScanScreen extends Component {
     const {navigation} = this.props
     const { state : {params}} = navigation
     this.state = {
-      // user_id: params.user_id,
-      user_id: 10,
+      user_id: params.user_id,
       isPay: false,
       isScan: true
     }
@@ -37,7 +37,7 @@ class OneScanScreen extends Component {
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.isLoad !== this.props.isLoad && nextProps.isLoad === true){
-      // this.setState({ isPay: true, isScan: false })
+      this.setState({ isPay: true, isScan: false })
     }
   }
 
@@ -200,6 +200,32 @@ class OneScanScreen extends Component {
             <QRCodeScanner
               cameraStyle={{height: '100%'}}
               showMarker={true}
+              customMarker={
+                <View style={styles.rectangleContainer}>
+                  <View style={styles.topOverlay}>
+                  </View>
+                  <View style={{ flexDirection: "row", width: "100%" }}>
+                    <View style={styles.leftAndRightOverlay} />      
+                    <View style={styles.rectangle}>
+                      <Svg height="100%" width="100%" style={{ borderRadius: 18, borderColor: Colors.white, borderWidth: 2}}>
+                          <Defs>
+                              <Mask id="mask" x="0" y="0" height="100%" width="100%">
+                                  <Rect height="100%" width="100%" fill="#fff"/>
+                                  <Rect height="100%" width="100%" rx="20" fill="#000"/>
+                              </Mask>
+                          </Defs>
+                          <Rect height="100%" width="100%" fill="rgba(0, 0, 0, 0.5)" mask="url(#mask)"/>
+                      </Svg>
+                    </View>
+                    <View style={styles.leftAndRightOverlay} />
+                  </View>
+                  <View style={styles.bottomOverlay} >
+                    <Text style={{ fontSize: Fonts.size.middle, color: Colors.white, marginTop: Metrics.mainHorizontal, textAlign: 'center' }}>
+                      Move camera to scan QR code
+                    </Text>
+                  </View>
+                </View>
+              }
               onRead={this.onSuccess}
               bottomContent={
                 <View style={styles.btnWrapper}>

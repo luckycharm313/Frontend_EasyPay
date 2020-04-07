@@ -25,6 +25,7 @@ export default StyleSheet.create({
   },
   modalContainer: {
     display: 'none',
+    opacity: 0,
     backgroundColor: Colors.white,
     borderTopLeftRadius: Metrics.mainRadius * 6,
     borderTopRightRadius: Metrics.mainRadius * 6,

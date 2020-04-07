@@ -14,6 +14,7 @@ import { Button } from 'react-native-elements'
 import QRCodeScanner from 'react-native-qrcode-scanner'
 import {check, openSettings, PERMISSIONS, RESULTS} from 'react-native-permissions'
 import Toast from 'react-native-simple-toast';
+import { Svg, Defs, Rect, Mask } from 'react-native-svg';
 import Header from '../Components/Header'
 import ReceiptAction from '../Redux/ReceiptRedux';
 import { currencyFormat } from '../Services/Constant'
@@ -185,13 +186,20 @@ class ScanScreen extends Component {
               showMarker={true}
               customMarker={
                 <View style={styles.rectangleContainer}>
-                  <View style={styles.topOverlay}>                    
+                  <View style={styles.topOverlay}>
                   </View>
-      
-                  <View style={{ flexDirection: "row" }}>
+                  <View style={{ flexDirection: "row", width: "100%" }}>
                     <View style={styles.leftAndRightOverlay} />      
                     <View style={styles.rectangle}>
-                      <Image source={Images.icon_qr} style={styles.icon_qr}/>
+                      <Svg height="100%" width="100%" style={{ borderRadius: 18, borderColor: Colors.white, borderWidth: 2}}>
+                          <Defs>
+                              <Mask id="mask" x="0" y="0" height="100%" width="100%">
+                                  <Rect height="100%" width="100%" fill="#fff"/>
+                                  <Rect height="100%" width="100%" rx="20" fill="#000"/>
+                              </Mask>
+                          </Defs>
+                          <Rect height="100%" width="100%" fill="rgba(0, 0, 0, 0.5)" mask="url(#mask)"/>
+                      </Svg>
                     </View>
                     <View style={styles.leftAndRightOverlay} />
                   </View>
