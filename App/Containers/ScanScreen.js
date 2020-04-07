@@ -26,13 +26,13 @@ class ScanScreen extends Component {
     super(props);
     this.state = {
       isPay: false,
-      isScan: false
+      isScan: true
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.isLoad !== this.props.isLoad && nextProps.isLoad === true){
-      this.setState({ isPay: true, isScan: false })
+      this.setState({ isPay: true/*, isScan: false*/ })
     }
   }
 
@@ -76,10 +76,10 @@ class ScanScreen extends Component {
   }
 
   onScanHandle = () => {
-    this.setState({isScan: true, isPay: false})
+    this.setState({/*isScan: true,*/ isPay: false})
   }
   onPayHandle = () => {
-    this.setState({isScan: false, isPay: false})
+    this.setState({/*isScan: false, */isPay: false})
     let receipt = this.props.receiptInfo.receipt;
     let sub_receipts = this.props.receiptInfo.sub_receipts;
     if(receipt.status === 1 || (Object.keys(sub_receipts).length > 0 && sub_receipts.status === 1))
@@ -88,7 +88,7 @@ class ScanScreen extends Component {
   }
 
   onCancelHandle = () => {
-    this.setState({ isScan: false })
+    // this.setState({ isScan: false })
     this.props.navigation.navigate('HomeScreen')
   }
 

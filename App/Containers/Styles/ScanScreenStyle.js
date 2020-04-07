@@ -107,6 +107,7 @@ export default StyleSheet.create({
 
   rectangleContainer: {
     flex: 1,
+    width: '100%',
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "transparent"
@@ -115,12 +116,11 @@ export default StyleSheet.create({
   rectangle: {
     height: rectDimensions,
     width: rectDimensions,
+    borderRadius: 30,
     padding: Metrics.mainVertical,
     borderWidth: rectBorderWidth,
     borderColor: Colors.white,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "transparent"
+    backgroundColor: 'rgba(0,0,0,0)'
   },
 
   icon_qr: {
@@ -148,6 +148,7 @@ export default StyleSheet.create({
   leftAndRightOverlay: {
     height: SCREEN_WIDTH * 0.65,
     width: SCREEN_WIDTH,
+    // borderTopRightRadius: -30,
     backgroundColor: overlayColor
   },
 

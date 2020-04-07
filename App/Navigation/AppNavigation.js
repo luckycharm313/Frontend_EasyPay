@@ -75,7 +75,7 @@ const PrimaryNav = createStackNavigator(
   },
   {
     headerMode: "none",
-    initialRouteName: "LaunchScreen",
+    initialRouteName: "OneScanScreen",
     navigationOptions: {
       headerStyle: styles.header,
       lazy: false

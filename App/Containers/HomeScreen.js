@@ -13,7 +13,7 @@ import styles from './Styles/HomeScreenStyle'
 class HomeScreen extends Component {
 
   componentDidMount() {
-    setTimeout(() => SplashScreen.hide(), 3000);
+    setTimeout(() => SplashScreen.hide(), 500);
     var params = {
       limit: 20
     }

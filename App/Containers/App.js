@@ -6,9 +6,9 @@ import RootContainer from './RootContainer'
 import createStore from '../Redux'
 import * as Sentry from '@sentry/react-native';
     
-Sentry.init({ 
-  dsn: 'https://db8dee177f1b401ca8f22ecc50f910a8@sentry.io/5184718', 
-});
+// Sentry.init({ 
+//   dsn: 'https://db8dee177f1b401ca8f22ecc50f910a8@sentry.io/5184718', 
+// });
 
 // create our store
 const store = createStore()

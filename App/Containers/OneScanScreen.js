@@ -28,15 +28,16 @@ class OneScanScreen extends Component {
     const {navigation} = this.props
     const { state : {params}} = navigation
     this.state = {
-      user_id: params.user_id,
+      // user_id: params.user_id,
+      user_id: 10,
       isPay: false,
-      isScan: false
+      isScan: true
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.isLoad !== this.props.isLoad && nextProps.isLoad === true){
-      this.setState({ isPay: true, isScan: false })
+      // this.setState({ isPay: true, isScan: false })
     }
   }
 
@@ -96,15 +97,28 @@ class OneScanScreen extends Component {
     this.setState({ isScan: false })
   }
 
-  onSuccess = ( e ) => {
-    let data = JSON.parse(e.data)
-    console.log({data})
-    var params = {
-      receipt_id: data.receipt_id, //4
-      sub_receipt_id: data.sub_receipt_id //0
+  isJson(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
     }
+    return true;
+}
 
-    this.props.getReceipt(params)
+  onSuccess = ( e ) => {
+    if( e.data && this.isJson(e.data) && JSON.parse(e.data).hasOwnProperty('receipt_id')) {
+      let data = JSON.parse(e.data)
+      console.log({data})
+      var params = {
+        receipt_id: data.receipt_id, //4
+        sub_receipt_id: data.sub_receipt_id //0
+      }
+  
+      this.props.getReceipt(params)
+    } else {
+      return Toast.show('This is not an easy pay generated QR code! Try again');
+    }    
   }
 
   renderItem = ({ item }) => {
@@ -186,25 +200,6 @@ class OneScanScreen extends Component {
             <QRCodeScanner
               cameraStyle={{height: '100%'}}
               showMarker={true}
-              customMarker={
-                <View style={styles.rectangleContainer}>
-                  <View style={styles.topOverlay}>                    
-                  </View>
-      
-                  <View style={{ flexDirection: "row" }}>
-                    <View style={styles.leftAndRightOverlay} />      
-                    <View style={styles.rectangle}>
-                      <Image source={Images.icon_qr} style={styles.icon_qr}/>
-                    </View>
-                    <View style={styles.leftAndRightOverlay} />
-                  </View>
-                  <View style={styles.bottomOverlay} >
-                    <Text style={{ fontSize: Fonts.size.middle, color: Colors.white, marginTop: Metrics.mainHorizontal, textAlign: 'center' }}>
-                      Move camera to scan QR code
-                    </Text>
-                  </View>
-                </View>
-              }
               onRead={this.onSuccess}
               bottomContent={
                 <View style={styles.btnWrapper}>
