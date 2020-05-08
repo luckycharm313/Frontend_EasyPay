@@ -93,15 +93,27 @@ class ScanScreen extends Component {
     this.props.navigation.navigate('HomeScreen')
   }
 
-  onSuccess = ( e ) => {
-    let data = JSON.parse(e.data)
-    console.log({data})
-    var params = {
-      receipt_id: data.receipt_id, //4
-      sub_receipt_id: data.sub_receipt_id //0
+isJson(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
     }
-
-    this.props.getReceipt(params)
+    return true;
+}
+  onSuccess = ( e ) => {
+    if( e.data && this.isJson(e.data) && JSON.parse(e.data).hasOwnProperty('receipt_id')) {
+      let data = JSON.parse(e.data)
+      console.log({data})
+      var params = {
+        receipt_id: data.receipt_id, //4
+        sub_receipt_id: data.sub_receipt_id //0
+      }
+  
+      this.props.getReceipt(params)
+    } else {
+      return Toast.show('This is not an easy pay generated QR code! Try again');
+    }
   }
 
   renderItem = ({ item }) => {
@@ -184,6 +196,7 @@ class ScanScreen extends Component {
             <QRCodeScanner
               cameraStyle={{height: '100%'}}
               showMarker={true}
+              reactivate={true}
               customMarker={
                 <View style={styles.rectangleContainer}>
                   <View style={styles.topOverlay}>

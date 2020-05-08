@@ -200,6 +200,7 @@ class OneScanScreen extends Component {
             <QRCodeScanner
               cameraStyle={{height: '100%'}}
               showMarker={true}
+              reactivate={true}
               customMarker={
                 <View style={styles.rectangleContainer}>
                   <View style={styles.topOverlay}>
